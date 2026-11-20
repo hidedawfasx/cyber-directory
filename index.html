@@ -71,22 +71,69 @@
             <p>Ты находишься на интерактивной образовательной платформе, посвященной информационной безопасности, этичному хакингу (Red Team) и защите цифровых систем (Blue Team). Здесь нет сухой и скучной воды — только реальное устройство современных атак, рабочие консольные команды, профессиональные утилиты и проверочные тесты после каждой главы.</p>
             <p>Понимание того, как мыслят и действуют злоумышленники — единственный способ выстроить по-настоящему надежную защиту для своих проектов, серверов и близких людей.</p>
 
+            <div class="hero">
+                <svg class="radar" viewBox="0 0 240 240" aria-hidden="true">
+                    <circle class="ring" cx="120" cy="120" r="34"/>
+                    <circle class="ring" cx="120" cy="120" r="70"/>
+                    <circle class="ring" cx="120" cy="120" r="106"/>
+                    <line x1="120" y1="10" x2="120" y2="230"/>
+                    <line x1="10" y1="120" x2="230" y2="120"/>
+                    <g class="sweep">
+                        <path d="M120 120 L120 14 A106 106 0 0 1 195 45 Z"/>
+                    </g>
+                    <circle class="blip b1" cx="165" cy="72" r="4"/>
+                    <circle class="blip b2" cx="80" cy="152" r="4"/>
+                    <circle class="blip b3" cx="152" cy="170" r="4"/>
+                    <path class="core" transform="translate(102 102) scale(1.5)" d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/>
+                </svg>
+                <div class="mini-term">
+                    <div class="mini-term-bar"><i></i><i></i><i></i></div>
+                    <div class="mini-term-body">
+                        <span class="t t1" style="--n:22">$ nmap -sV 192.168.0.10</span>
+                        <span class="t t2" style="--n:23">22/tcp   open   ssh</span>
+                        <span class="t t3" style="--n:23">80/tcp   open   http</span>
+                        <span class="t t4" style="--n:23">443/tcp  open   https</span>
+                        <span class="t t5" style="--n:16">[+] scan complete</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="icon-row">
-                <div class="icon-tile">
-                    <img src="images/shield.svg" alt="" width="34" height="34">
-                    <span>Защита</span>
+                <div class="icon-tile" tabindex="0">
+                    <div class="tile-face tile-front">
+                        <img src="images/shield.svg" alt="" width="40" height="40">
+                        <span>Защита</span>
+                    </div>
+                    <div class="tile-face tile-back">
+                        <p>Обновления, двухфакторная защита, шифрование и резервные копии.</p>
+                    </div>
                 </div>
-                <div class="icon-tile">
-                    <img src="images/terminal.svg" alt="" width="34" height="34">
-                    <span>Терминал</span>
+                <div class="icon-tile" tabindex="0">
+                    <div class="tile-face tile-front">
+                        <img src="images/terminal.svg" alt="" width="40" height="40">
+                        <span>Терминал</span>
+                    </div>
+                    <div class="tile-face tile-back">
+                        <p>Nmap, Wireshark и Burp: команды и утилиты в деле.</p>
+                    </div>
                 </div>
-                <div class="icon-tile">
-                    <img src="images/lock.svg" alt="" width="34" height="34">
-                    <span>Пароли</span>
+                <div class="icon-tile" tabindex="0">
+                    <div class="tile-face tile-front">
+                        <img src="images/lock.svg" alt="" width="40" height="40">
+                        <span>Пароли</span>
+                    </div>
+                    <div class="tile-face tile-back">
+                        <p>Хеши, Hashcat и почему длинная фраза лучше сложного пароля.</p>
+                    </div>
                 </div>
-                <div class="icon-tile">
-                    <img src="images/bug.svg" alt="" width="34" height="34">
-                    <span>Уязвимости</span>
+                <div class="icon-tile" tabindex="0">
+                    <div class="tile-face tile-front">
+                        <img src="images/bug.svg" alt="" width="40" height="40">
+                        <span>Уязвимости</span>
+                    </div>
+                    <div class="tile-face tile-back">
+                        <p>SQL-инъекции, XSS и JWT: как их находят и закрывают.</p>
+                    </div>
                 </div>
             </div>
 
